@@ -1,0 +1,30 @@
+pays:
+    pattern:  /
+    defaults: { _controller: "EmpruntBundle:Pays:index" }
+
+pays_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EmpruntBundle:Pays:show" }
+
+pays_new:
+    pattern:  /new
+    defaults: { _controller: "EmpruntBundle:Pays:new" }
+
+pays_create:
+    pattern:  /create
+    defaults: { _controller: "EmpruntBundle:Pays:create" }
+    requirements: { _method: post }
+
+pays_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EmpruntBundle:Pays:edit" }
+
+pays_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EmpruntBundle:Pays:update" }
+    requirements: { _method: post|put }
+
+pays_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EmpruntBundle:Pays:delete" }
+    requirements: { _method: post|delete }

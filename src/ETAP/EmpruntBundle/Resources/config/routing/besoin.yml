@@ -1,0 +1,24 @@
+ConsulterBesoin:
+    pattern:  /ConsulterBesoin
+    defaults: { _controller: "EmpruntBundle:Besoin:consulterBesoin" }
+    
+AjouterBesoin:
+    pattern:  /AjouterBesoin
+    defaults: { _controller: "EmpruntBundle:Besoin:ajouterBesoin" }
+
+display_besoin:
+    pattern:  /display/{id}
+    defaults: { _controller: "EmpruntBundle:Besoin:displayBesoin" }
+
+ModifierBesoin:
+    pattern:  /{id}/ModifierBesoin
+    defaults: { _controller: "EmpruntBundle:Besoin:modifierBesoin" }
+
+besoin_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EmpruntBundle:Besoin:edit" }
+
+besoin_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EmpruntBundle:Besoin:update" }
+    requirements: { _method: post|put }

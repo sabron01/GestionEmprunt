@@ -1,0 +1,15 @@
+ConsulterUtilisateur:
+    pattern:  /ConsulterUtilisateur
+    defaults: { _controller: "EmpruntBundle:Utilisateur:consulterUtilisateur" }
+    
+AjouterUtilisateur:
+    pattern:  /AjouterUtilisateur
+    defaults: { _controller: "EmpruntBundle:Utilisateur:ajouterUtilisateur" }
+
+display_utilisateur:
+    pattern:  /display/{id}
+    defaults: { _controller: "EmpruntBundle:Utilisateur:displayUtilisateurForm" }
+
+ModifierUtilisateur:
+    pattern:  /{id}/ModifierUtilisateur
+    defaults: { _controller: "EmpruntBundle:Utilisateur:modifierUtilisateur" }

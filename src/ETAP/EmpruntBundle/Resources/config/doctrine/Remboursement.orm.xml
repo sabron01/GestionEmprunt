@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="ETAP\EmpruntBundle\Entity\Remboursement" table="REMBOURSEMENT">
+    <indexes>
+      <index name="IDX_E68CDB0A889A6B1F" columns="IDTIRAGE"/>
+    </indexes>
+    <id name="id" type="integer" column="ID">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="dateecheance" type="datetime" column="DATEECHEANCE" nullable="true"/>
+    <field name="interet" type="decimal" column="INTERET" precision="10" scale="3" nullable="true"/>
+    <field name="montantprincipal" type="decimal" column="MONTANTPRINCIPAL" precision="10" scale="3" nullable="true"/>
+    <field name="montantrestantdu" type="decimal" column="MONTANTRESTANTDU" precision="10" scale="3" nullable="true"/>
+    <field name="montanttotal" type="decimal" column="MONTANTTOTAL" precision="10" scale="3" nullable="true"/>
+    <field name="montanttotalremb" type="decimal" column="MONTANTTOTALREMB" precision="10" scale="3" nullable="true"/>
+    <field name="nbrjours" type="integer" column="NBRJOURS" nullable="true"/>
+    <field name="numremboursement" type="integer" column="NUMREMBOURSEMENT" nullable="true"/>
+    <field name="tauxdirecteur" type="decimal" column="TAUXDIRECTEUR" precision="10" scale="3" nullable="true"/>
+    <field name="tauxinteret" type="decimal" column="TAUXINTERET" precision="10" scale="3" nullable="true"/>
+    <many-to-one field="idtirage" target-entity="Tirage">
+      <join-columns>
+        <join-column name="IDTIRAGE" referenced-column-name="ID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idconcession" target-entity="Concession" mapped-by="idremboursement"/>
+    <many-to-many field="idjf" target-entity="Jourferie" mapped-by="idremboursement"/>
+  </entity>
+</doctrine-mapping>

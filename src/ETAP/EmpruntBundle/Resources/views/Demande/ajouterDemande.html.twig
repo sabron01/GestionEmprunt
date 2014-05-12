@@ -1,0 +1,88 @@
+{% extends "EmpruntBundle::layout.html.twig" %}
+{% block title %} {{ parent() }} | Ajouter Demande {% endblock %}
+{% block centercontent %}
+<div class="pageheader notab">
+    <h1 class="pagetitle">Gestion des demandes</h1>
+    <span class="pagedesc"></span>
+</div><!--pageheader-->
+<div id="contentwrapper" class="contentwrapper elements">
+{{ form_errors(form) }} 
+    {% if (class_alert !="") %}
+    <div class="notibar {{ class_alert }}">
+                        <a class="close"></a>
+                        <p>{{ notify }}</p>
+    </div>
+    {% endif %}
+    
+    <div class="contenttitle2">
+        <h3>Ajouter une demande</h3>
+    </div><!--contenttitle-->
+
+    <form class="stdform stdform2" method="post" action="{{ path('AjouterDemande') }}" {{ form_enctype(form) }}>
+                      
+        <p>
+            <label>Réference Demande</label>
+            <span class="field">
+                {{ form_widget(form._token) }}                
+                {{ form_widget(form.refdemande) }}
+            </span>
+        </p>
+
+        <p>
+             <label>Date Demande </label> 
+             <span class="field">
+{#                 {{ form_widget(form.datedemande) }}#}
+                 <input type="text" id="etap_empruntbundle_demandetype_datedemande" name="etap_empruntbundle_demandetype[datedemande]" required="required" class="width100 hasDatepicker">                    
+{#                 <input type="date"  name="etap_empruntbundle_demandetype[datedemande]" />#}
+             </span>
+                {{ form_errors(form.datedemande) }}
+        </p>
+        
+        
+
+        <p>
+            <label>Nature Demande</label>
+            <span class="field">{{ form_widget(form.natureoperation) }}</span>
+        </p>
+
+        <p>
+            <label>Montant Crédit</label>
+            <span class="field">
+            {{ form_widget(form.montantcredit) }}
+            {{ form_errors(form.montantcredit) }}
+            </span>
+        </p>
+        
+        
+        <p>
+            <label>Durée Crédit</label>
+            <span class="field">{{ form_widget(form.dureecredit) }}</span>
+        </p>
+        
+        <p>
+            <label>Monnaie Crédit</label>
+            <span class="field">{{ form_widget(form.monnaiecredit) }}</span>
+        </p>        
+      
+        <p class="stdformbutton">
+            <button class="submit radius2">Ajouter</button>            
+            <button class="stdbtn">Retour</button>
+        </p>
+    </form>
+
+</div><!--contentwrapper-->
+{% endblock %}
+{% block javascripts %}
+
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-1.7.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-ui-1.8.16.custom.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.cookie.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/colorpicker.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.jgrowl.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.alerts.js') }}"></script>    
+    
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/demande.js') }}"></script>
+    <!--[if lt IE 9]>
+            <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+{% endblock %} 

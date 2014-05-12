@@ -1,0 +1,4 @@
+emprunt:
+    resource: "@EmpruntBundle/Resources/config/routing.yml"
+    prefix:   /
+    

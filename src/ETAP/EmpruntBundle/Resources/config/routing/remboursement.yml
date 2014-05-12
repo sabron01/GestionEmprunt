@@ -1,0 +1,15 @@
+generateRemboursement:
+    pattern:  /Générer-Remboursement.html
+    defaults: { _controller: "EmpruntBundle:Remboursement:generateRemboursement" }
+  
+consulterRemboursementParTirage:
+    pattern:  /Consulter-Remboursement-Par-Tirage.html
+    defaults: { _controller: "EmpruntBundle:Remboursement:consulterRemboursementParTirage" }  
+    
+repartitionParConcession:
+    pattern:  /Répartition-Par-Concession.html
+    defaults: { _controller: "EmpruntBundle:Remboursement:repartitionParConcession" }      
+      
+consulterRemboursementParConcession:
+    pattern:  /Consulter-Remboursement-Par-Concession.html
+    defaults: { _controller: "EmpruntBundle:Remboursement:consulterRemboursementParConcession" }    

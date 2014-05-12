@@ -1,0 +1,28 @@
+{#{% extends 'form_div_layout.html.twig' %}#}
+{% block form_row %}
+{% spaceless %}
+    <p>
+        <label>{{ form_label(form) }}</label>
+        <span class="field">
+            {{ form_widget(form) }}
+            {{ form_errors(form) }}
+        </span>
+    </p>
+{% endspaceless %}
+{% endblock form_row %} 
+    
+{#{% block date_widget %}
+{% spaceless %}
+    {% if widget == 'single_text' %}
+        {{ block('form_widget_simple') }}
+    {% else %}
+        <span {{ block('widget_container_attributes') }}>
+            {{ date_pattern|replace({
+                '{{ year }}':  form_widget(form.year),
+                '{{ month }}': form_widget(form.month),
+                '{{ day }}':   form_widget(form.day),
+            })|raw }}
+        </span>
+    {% endif %}
+{% endspaceless %}
+{% endblock date_widget %}#}

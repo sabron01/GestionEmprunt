@@ -1,0 +1,102 @@
+{% extends "EmpruntBundle::layout.html.twig" %}
+{% block title %} {{ parent() }} | Ajouter Offre {% endblock %}
+{% block centercontent %}
+<div class="pageheader notab">
+    <h1 class="pagetitle">Gestion des offres</h1>
+    <span class="pagedesc"></span>
+</div><!--pageheader-->
+<div id="contentwrapper" class="contentwrapper elements">
+{{ form_errors(form) }} 
+    {% if (class_alert !="") %}
+    <div class="notibar {{ class_alert }}">
+                        <a class="close"></a>
+                        <p>{{ notify }}</p>
+    </div>
+    {% endif %}
+    
+    <div class="contenttitle2">
+        <h3>Ajouter une offre</h3>
+    </div><!--contenttitle-->
+
+    <form class="stdform stdform2" method="post" action="{{ path('AjouterOffre') }}" {{ form_enctype(form) }}>
+        
+        
+        
+        <p>
+            <label>Code Offre</label>
+            <span class="field">
+                {{ form_widget(form._token) }}                
+                {{ form_widget(form.codeoffre) }}
+            </span>
+        </p>
+
+        <p>
+            <label>Date Offre </label>
+            <span class="field">
+{#            {{ form_widget(form.dateoffre) }}#}
+            <input type="date"  name="etap_empruntbundle_demandetype[dateoffre]" />
+{#            <small>Veuillez entrez une date à la forme dd/mm/yyyy.</small>#}
+            </span>
+        </p>
+
+        <p>
+            <label>Nature Offre</label>
+            <span class="field">{{ form_widget(form.natureoffre) }}</span>
+        </p>
+
+        <p>
+            <label>Montant Proposé</label>
+            <span class="field">{{ form_widget(form.montantpropose) }}</span>
+        </p>
+        
+        <p>
+            <label>Monnaie Remboursement</label>
+            <span class="field">{{ form_widget(form.monnaieremboursement) }}</span>
+        </p> 
+        
+        <p>
+            <label>Marge</label>
+            <span class="field">{{ form_widget(form.marge) }}</span>
+        </p>
+        
+        <p>
+            <label>Taux Directeur</label>
+            <span class="field">{{ form_widget(form.tauxdirecteur) }}</span>
+        </p>
+        
+        <p>
+            <label>Demande</label>
+            <span class="field">{{ form_widget(form.iddemande) }}</span>
+        </p>
+        
+        <p>
+            <label>Banque</label>
+            <span class="field">{{ form_widget(form.idbanque) }}</span>
+        </p>
+        
+               
+      
+        <p class="stdformbutton">
+            <button class="submit radius2">Ajouter</button>            
+            <button class="stdbtn">Retour</button>
+        </p>
+    </form>
+
+</div><!--contentwrapper-->
+{% endblock %}
+{% block javascripts %}
+
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-1.7.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-ui-1.8.16.custom.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.cookie.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/colorpicker.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.jgrowl.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.alerts.js') }}"></script>    
+    
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/general.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/elements.js') }}"></script>
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/excanvas.min.js') }}"></script><![endif]-->
+    <!--[if lt IE 9]>
+            <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+{% endblock %} 

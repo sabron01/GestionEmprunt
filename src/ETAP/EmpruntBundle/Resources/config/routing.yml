@@ -1,0 +1,97 @@
+home:
+    pattern:  /
+    defaults: { _controller: EmpruntBundle:Default:index }
+
+emprunt_homepage:
+    pattern:  /index/
+    defaults: { _controller: EmpruntBundle:Default:index }
+
+dashboard:
+    pattern:  /index/accueil.html
+    defaults: { _controller: EmpruntBundle:Default:accueil }
+
+funding_opportunities:
+    pattern:  /OpportunitesFinancement.html
+    defaults: { _controller: EmpruntBundle:Default:fundingOpportunities }
+    
+Projets:
+    pattern:  /Projets.html
+    defaults: { _controller: EmpruntBundle:Default:projets }
+    
+Contrats:
+    pattern:  /Contrats.html
+    defaults: { _controller: EmpruntBundle:Default:contrats }
+    
+Remboursements:
+    pattern:  /Remboursements.html
+    defaults: { _controller: EmpruntBundle:Default:remboursements }
+    
+JoursFeries:
+    pattern:  /JoursFeries.html
+    defaults: { _controller: EmpruntBundle:Default:joursFeries }
+    
+Etats:
+    pattern:  /Etats.html
+    defaults: { _controller: EmpruntBundle:Default:etats }
+
+Utilisateurs:
+    pattern:  /Utilisateurs.html
+    defaults: { _controller: EmpruntBundle:Default:utilisateurs }
+
+    
+test:
+    pattern:  /test.html
+    defaults: { _controller: EmpruntBundle:Default:test }
+    
+    
+demande:
+    resource: "@EmpruntBundle/Resources/config/routing/demande.yml"
+    prefix:   /OpportunitesFinancement.html/demande    
+    
+offre:
+    resource: "@EmpruntBundle/Resources/config/routing/offre.yml"
+    prefix:   /OpportunitesFinancement.html/offre
+  
+besoin:
+    resource: "@EmpruntBundle/Resources/config/routing/besoin.yml"
+    prefix:   /Projets.html/besoin
+    
+concession:
+    resource: "@EmpruntBundle/Resources/config/routing/concession.yml"
+    prefix:   /Projets.html/concession          
+    
+contrat:
+    resource: "@EmpruntBundle/Resources/config/routing/contrat.yml"
+    prefix:   /Contrats.html
+    
+tirage:
+    resource: "@EmpruntBundle/Resources/config/routing/tirage.yml"
+    prefix:   /Contrats.html/tirage
+    
+remboursement:
+    resource: "@EmpruntBundle/Resources/config/routing/remboursement.yml"
+    prefix:   /Remboursements.html
+
+jourferie:
+    resource: "@EmpruntBundle/Resources/config/routing/jourferie.yml"
+    prefix:   /Jours-Feriés.html
+    
+etat:
+    resource: "@EmpruntBundle/Resources/config/routing/etat.yml"
+    prefix:   /Etats.html    
+
+utilisateur:
+    resource: "@EmpruntBundle/Resources/config/routing/utilisateur.yml"
+    prefix:   /Utilisateurs.html
+    
+commission:
+    resource: "@EmpruntBundle/Resources/config/routing/commission.yml"
+    prefix:   /commission 
+    
+banque:
+    resource: "@EmpruntBundle/Resources/config/routing/banque.yml"
+    prefix:   /banque
+   
+pays:
+    resource: "@EmpruntBundle/Resources/config/routing/pays.yml"
+    prefix:   /pays    

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="ETAP\EmpruntBundle\Entity\Concession" table="CONCESSION">
+    <id name="id" type="integer" column="ID">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="datecreation" type="string" column="DATECREATION" nullable="true"/>
+    <field name="description" type="string" column="DESCRIPTION" length="20" nullable="true"/>
+    <field name="nomconcession" type="string" column="NOMCONCESSION" length="20" nullable="true"/>
+    <field name="valeurrealisation" type="integer" column="VALEURREALISATION" nullable="true"/>
+    <many-to-many field="idremboursement" target-entity="Remboursement" inversed-by="idconcession">
+      <join-table name="remboursementconcession">
+        <join-columns>
+          <join-column name="IDCONCESSION" referenced-column-name="ID"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="IDREMBOURSEMENT" referenced-column-name="ID"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

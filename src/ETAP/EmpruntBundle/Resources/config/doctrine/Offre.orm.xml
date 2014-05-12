@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="ETAP\EmpruntBundle\Entity\Offre" table="OFFRE">
+    <indexes>
+      <index name="IDX_58D244DF1378FADC" columns="IDBANQUE"/>
+      <index name="IDX_58D244DFBD529B24" columns="IDDEMANDE"/>
+    </indexes>
+    <id name="id" type="integer" column="ID">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="codeoffre" type="string" column="CODEOFFRE" length="10" nullable="true"/>
+    <field name="dateoffre" type="string" column="DATEOFFRE" nullable="true"/>
+    <field name="marge" type="decimal" column="MARGE" precision="10" scale="3" nullable="true"/>
+    <field name="monnaieremboursement" type="string" column="MONNAIEREMBOURSEMENT" length="20" nullable="true"/>
+    <field name="montantpropose" type="integer" column="MONTANTPROPOSE" nullable="true"/>
+    <field name="natureoffre" type="string" column="NATUREOFFRE" length="20" nullable="true"/>
+    <field name="tauxdirecteur" type="decimal" column="TAUXDIRECTEUR" precision="10" scale="3" nullable="true"/>
+    <many-to-one field="iddemande" target-entity="Demande">
+      <join-columns>
+        <join-column name="IDDEMANDE" referenced-column-name="ID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idbanque" target-entity="Banque">
+      <join-columns>
+        <join-column name="IDBANQUE" referenced-column-name="ID"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

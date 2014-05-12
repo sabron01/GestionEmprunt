@@ -1,0 +1,30 @@
+banque:
+    pattern:  /
+    defaults: { _controller: "EmpruntBundle:Banque:index" }
+
+banque_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EmpruntBundle:Banque:show" }
+
+banque_new:
+    pattern:  /new
+    defaults: { _controller: "EmpruntBundle:Banque:new" }
+
+banque_create:
+    pattern:  /create
+    defaults: { _controller: "EmpruntBundle:Banque:create" }
+    requirements: { _method: post }
+
+banque_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EmpruntBundle:Banque:edit" }
+
+banque_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EmpruntBundle:Banque:update" }
+    requirements: { _method: post|put }
+
+banque_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EmpruntBundle:Banque:delete" }
+    requirements: { _method: post|delete }

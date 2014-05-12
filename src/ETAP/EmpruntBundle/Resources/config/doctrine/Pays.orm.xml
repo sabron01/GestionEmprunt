@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="ETAP\EmpruntBundle\Entity\Pays" table="PAYS">
+    <id name="id" type="integer" column="ID">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="codepays" type="string" column="CODEPAYS" length="10" nullable="true"/>
+    <field name="nompays" type="string" column="NOMPAYS" length="20" nullable="true"/>
+    <many-to-many field="idjf" target-entity="Jourferie" mapped-by="idpays"/>
+  </entity>
+</doctrine-mapping>

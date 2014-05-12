@@ -1,0 +1,172 @@
+{% extends "EmpruntBundle::layout.html.twig" %}
+{% block title %} {{ parent() }} | Accueil {% endblock %}
+{% block centercontent %}
+<div class="pageheader notab">
+    <h1 class="pagetitle">Liste des Etats</h1>
+    <span class="pagedesc">This is a sample description of a page</span>
+    <ul class="hornav">
+    </ul>
+</div><!--pageheader-->
+<div id="contentwrapper" class="contentwrapper">
+    <div class="one_third last dashboard_left">
+
+        <div class="contenttitle2 nomargintop">
+            <h3>Opportunités de financement</h3>
+        </div><!--contenttitle-->
+
+
+        <ul class="toplist">
+            <li>
+                <div>
+                    <span class="three_fourth">
+                        <span class="left">
+                            <span class="title"><a href="">Demandes d'emprunt bancaire</a></span>
+                            <span class="desc">Plus de détails</span>
+                        </span><!--left-->
+                    </span><!--three_fourth-->
+                    <span class="one_fourth last">
+                        <span class="right">
+                            <span class="h3">10</span>
+                        </span><!--right-->
+                    </span><!--one_fourth-->
+                    <br clear="all" />
+                </div>
+            </li>
+        </ul>
+    </div>    
+    <div class="one_third last dashboard_left">
+
+        <div class="contenttitle2 nomargintop">
+            <h3>Contrats</h3>
+        </div><!--contenttitle-->
+
+
+        <ul class="toplist">
+            <li>
+                <div>
+                    <span class="three_fourth">
+                        <span class="left">
+                            <span class="title"><a href="">Convention de crédit</a></span>
+                            <span class="desc">Plus de détails</span>
+                        </span><!--left-->
+                    </span><!--three_fourth-->
+                    <span class="one_fourth last">
+                        <span class="right">
+                            <span class="h3">5</span>
+                        </span><!--right-->
+                    </span><!--one_fourth-->
+                    <br clear="all" />
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span class="three_fourth">
+                        <span class="left">
+                            <span class="title"><a href="">Fiche contrôle Technique</a></span>
+                            <span class="desc">Plus de détails</span>
+                        </span><!--left-->
+                    </span><!--three_fourth-->
+                    <span class="one_fourth last">
+                        <span class="right">
+                            <span class="h3">1</span>
+                        </span><!--right-->
+                    </span><!--one_fourth-->
+                    <br clear="all" />
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span class="three_fourth">
+                        <span class="left">
+                            <span class="title"><a href="">Fiche d'information de la banque centrale</a></span>
+                            <span class="desc">Plus de détails</span>
+                        </span><!--left-->
+                    </span><!--three_fourth-->
+                    <span class="one_fourth last">
+                        <span class="right">
+                            <span class="h3">1</span>
+                        </span><!--right-->
+                    </span><!--one_fourth-->
+                    <br clear="all" />
+                </div>
+            </li>            
+        </ul>
+    </div>    
+    <div class="one_third last dashboard_right">
+
+        <div class="contenttitle2 nomargintop">
+            <h3>Remboursement</h3>
+        </div><!--contenttitle-->
+
+        <ul class="toplist">
+            <li>
+                <div>
+                    <span class="three_fourth">
+                        <span class="left">
+                            <span class="title"><a href="">Tableau d'ammortissement par tirage</a></span>
+                            <span class="desc">Plus de détails</span>
+                        </span><!--left-->
+                    </span><!--three_fourth-->
+                    <span class="one_fourth last">
+                        <span class="right">
+                            <span class="h3">20</span>
+                        </span><!--right-->
+                    </span><!--one_fourth-->
+                    <br clear="all" />
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span class="three_fourth">
+                        <span class="left">
+                            <span class="title"><a href="">Tableau d'ammortissement par concession</a></span>
+                            <span class="desc">Plus de détails</span>
+                        </span><!--left-->
+                    </span><!--three_fourth-->
+                    <span class="one_fourth last">
+                        <span class="right">
+                            <span class="h3">44</span>
+                        </span><!--right-->
+                    </span><!--one_fourth-->
+                    <br clear="all" />
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span class="three_fourth">
+                        <span class="left">
+                            <span class="title"><a href="">Echéancer général par ordre chronologique</a></span>
+                            <span class="desc">Plus de détails</span>
+                        </span><!--left-->
+                    </span><!--three_fourth-->
+                    <span class="one_fourth last">
+                        <span class="right">
+                            <span class="h3">1</span>
+                        </span><!--right-->
+                    </span><!--one_fourth-->
+                    <br clear="all" />
+                </div>
+            </li>            
+        </ul>
+    </div>
+
+</div><!--contentwrapper-->
+{% endblock %}
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-1.7.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-ui-1.8.16.custom.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.cookie.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.uniform.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.bxSlider.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.slimscroll.js') }}"></script>
+
+
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/general.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/widgets.js') }}"></script>
+<script type="text/javascript">
+    //jQuery('body').addClass('withmenucoll2');
+</script>
+<!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+{% endblock %}  

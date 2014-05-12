@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="ETAP\EmpruntBundle\Entity\Tirage" table="TIRAGE">
+    <indexes>
+      <index name="IDX_DAEC9D79FBF2D512" columns="IDCONTRAT"/>
+    </indexes>
+    <id name="id" type="integer" column="ID">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="datevaleur" type="datetime" column="DATEVALEUR" nullable="true"/>
+    <field name="montant" type="decimal" column="MONTANT" precision="10" scale="3" nullable="true"/>
+    <field name="reftirage" type="integer" column="REFTIRAGE" nullable="true"/>
+    <many-to-one field="idcontrat" target-entity="Contrat">
+      <join-columns>
+        <join-column name="IDCONTRAT" referenced-column-name="ID"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

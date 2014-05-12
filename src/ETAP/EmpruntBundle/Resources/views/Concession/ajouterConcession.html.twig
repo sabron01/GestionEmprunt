@@ -1,0 +1,71 @@
+{% extends "EmpruntBundle::layout.html.twig" %}
+{% block title %} {{ parent() }} | Ajouter Demande {% endblock %}
+{% block centercontent %}
+<div class="pageheader notab">
+    <h1 class="pagetitle">Gestion des Concessions</h1>
+    <span class="pagedesc"></span>
+</div><!--pageheader-->
+<div id="contentwrapper" class="contentwrapper elements">
+{{ form_errors(form) }} 
+    {% if (class_alert !="") %}
+    <div class="notibar {{ class_alert }}">
+        <a class="close"></a>
+        <p>{{ notify }}</p>
+    </div>
+    {% endif %}
+
+    <div class="contenttitle2">
+        <h3>Ajouter un Concession</h3>
+    </div><!--contenttitle-->
+
+    <form class="stdform stdform2" method="post" action="{{ path('AjouterConcession') }}" {{ form_enctype(form) }}>
+        <p>
+            <label>Nom Concession</label>
+            <span class="field">
+                {{ form_widget(form._token) }}                
+                {{ form_widget(form.nomconcession) }}
+            </span>
+        </p>
+
+        <p>
+            <label>Valeur de Réalisation</label>
+            <span class="field">{{ form_widget(form.valeurrealisation) }}</span>
+            {{ form_widget(form.valeurrealisation) }}
+        </p>        
+
+        <p>
+            <label>Description Concession</label>
+            <span class="field">{{ form_widget(form.description) }}</span>
+        </p>
+
+        <p>
+            <label>Date Concession </label> 
+            <span class="field"><input type="date"  name="etap_empruntbundle_concessiontype[datecreation]" /></span>
+                {{ form_errors(form.datecreation) }}
+        </p>
+
+        <p class="stdformbutton">
+            <button class="submit radius2">Ajouter</button>            
+            <button class="stdbtn">Retour</button>
+        </p>
+    </form>
+
+</div><!--contentwrapper-->
+{% endblock %}
+{% block javascripts %}
+
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-1.7.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-ui-1.8.16.custom.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.cookie.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/colorpicker.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.jgrowl.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.alerts.js') }}"></script>    
+
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/general.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/elements.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/concession.js') }}"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/excanvas.min.js') }}"></script><![endif]-->
+<!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+{% endblock %} 

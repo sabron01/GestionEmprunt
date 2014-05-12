@@ -1,0 +1,19 @@
+        <p>
+            <label>Valeur de Réalisation</label>
+            <span class="field">{{ form_widget(form.valeurrealisation) }}</span>
+            {{ form_widget(form.valeurrealisation) }}
+        </p>        
+
+        <p>
+            <label>Description Concession</label>
+            <span class="field">{{ form_widget(form.description) }}</span>
+        </p>
+        
+        <p>
+             <label>Date Concession </label> 
+             <span class="field">
+                 {{ form_widget(form.datecreation) }}
+{#                 <input type="text"  name="etap_empruntbundle_concessiontype[datecreation]" />#}
+             </span>
+                {{ form_errors(form.datecreation) }}
+        </p>

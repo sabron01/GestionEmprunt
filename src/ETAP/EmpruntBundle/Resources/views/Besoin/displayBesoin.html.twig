@@ -1,0 +1,19 @@
+        <p>
+            <label>Valeur Besoin</label>
+            <span class="field">{{ form_widget(form.valeur) }}</span>
+            {{ form_widget(form.valeur) }}
+        </p>        
+        
+        
+        <p>
+             <label>Date Besoin </label> 
+             <span class="field"><input type="date"  name="etap_empruntbundle_besointype[datebesoin]" /></span>
+                {{ form_errors(form.datebesoin) }}
+        </p>
+        
+        
+
+        <p>
+            <label>Description Besoin</label>
+            <span class="field">{{ form_widget(form.description) }}</span>
+        </p>

@@ -1,0 +1,61 @@
+{% extends "::base.html.twig" %}
+{% block title %} Emprunts bancaires | ETAP {% endblock %}
+{% block headerRight %}                
+<div class="right">
+    <div class="notification">
+        <a class="count" href="ajax/notifications.html"><span>0</span></a>
+    </div>
+    <div class="userinfo">
+        <img src="{{ asset('bundles/emprunt/images/thumbs/avatar.png') }}" alt="" />
+        <span>Mehdi Ben Arfa</span>
+    </div><!--userinfo-->
+    <div class="userinfodrop">
+        <div class="avatar">
+            <a href=""><img src="{{ asset('bundles/emprunt/images/thumbs/avatarbig.png') }}" alt="" /></a>
+
+        </div><!--avatar-->
+        <div class="userdata">
+            <h4>Mehdi Ben Arfa</h4><br>
+            <span class="email"> Financier </span>
+            <ul>
+                <li><a href="index.html">Sign Out</a></li>
+            </ul>
+        </div><!--userdata-->
+    </div><!--userinfodrop-->
+</div><!--right-->
+{% endblock %}
+{% block header %}
+   {{ include('EmpruntBundle:Default:menu.html.twig', {'current': current}) }}
+<div class="headerwidget">
+    <div class="earnings">
+        <div class="one_half">
+            <h4>Libor $</h4>
+            <a href="http://fr.global-rates.com/taux-de-interets/libor/dollar-americain/dollar-americain.aspx" target="_blank"><h2>0,08700%&nbsp;&nbsp;&nbsp;</h2></a>
+        </div><!--one_half-->
+
+        <div class="one_half last alignright">
+            <h4>Libor €</h4>
+            <a href="http://fr.global-rates.com/taux-de-interets/libor/euro-europeen/euro-europeen.aspx" target="_blank"><h2>0,14857%</h2></a>
+        </div><!--one_half last-->
+    </div><!--earnings-->
+</div><!--headerwidget-->
+{% endblock %}
+{% block menuVer %}
+    {{ include('EmpruntBundle:Default:vertical_menu.html.twig', {'current': section}) }}
+{% endblock %} 
+
+
+{#    {% macro widget_prototype(widget, remove_text) %}
+    {% if widget.get('prototype') %}
+        {% set form = widget.get('prototype') %}
+        {% set name = widget.get('prototype').get('name') %}
+    {% else %}
+        {% set form = widget %}
+        {% set name = widget.get('full_name') %}
+    {% endif %}
+
+<div data-content="{{ name }}">
+    <a class="btn-remove" data-related="{{ name }}">{{ remove_text }}</a>
+        {{ form_widget(form) }}
+</div>
+{% endmacro %}#}

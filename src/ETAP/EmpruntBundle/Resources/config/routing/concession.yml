@@ -1,0 +1,11 @@
+ConsulterConcession:
+    pattern:  /ConsulterConcession
+    defaults: { _controller: "EmpruntBundle:Concession:consulterConcession" }
+    
+AjouterConcession:
+    pattern:  /AjouterConcession
+    defaults: { _controller: "EmpruntBundle:Concession:ajouterConcession" }
+
+display_concession:
+    pattern:  /display/{id}
+    defaults: { _controller: "EmpruntBundle:Concession:displayConcession" }

@@ -1,0 +1,196 @@
+{% extends "EmpruntBundle::layout.html.twig" %}
+{% block title %} {{ parent() }} | Accueil {% endblock %}
+{% block menuVer %}
+<ul
+</ul>
+<a class="togglemenu"></a>
+<br /><br />
+{% endblock %}
+{% block centercontent %}
+<div class="pageheader">
+    <h1 class="pagetitle">Tableau de bord</h1>
+    <span class="pagedesc">This is a sample description of a page</span>
+    <ul class="hornav">
+        <li class="current"><a href="#updates">Mises à jour</a></li>
+        <li><a href="#activities">Activities</a></li>
+    </ul>
+</div><!--pageheader-->
+<div id="contentwrapper" class="contentwrapper">
+
+    <div id="updates" class="subcontent">
+
+
+        <div class="one_half">
+
+            <div class="widgetbox">
+                <div class="title"><h3>Content Slider</h3></div>
+                <div class="widgetcontent">
+                    <ul id="slidercontent">
+                        <li>
+                            <div class="slide_wrap">
+                                <div class="slide_img"><img src="{{ asset('bundles/emprunt/images/thumbs/image1.png') }}" alt="" /></div>
+                                <div class="slide_content">
+                                    <h4><a href="">Why Won't My Cat Eat?</a></h4>
+                                    <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10, 2012</small>
+                                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non...</p>
+                                    <p><button class="stdbtn btn_lime">Approve</button> <button class="stdbtn">Decline</button></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slide_wrap">
+                                <div class="slide_img"><img src="{{ asset('bundles/emprunt/images/thumbs/image2.png') }}" alt="" /></div>
+                                <div class="slide_content">
+                                    <h4><a href="">We Are About Color</a></h4>
+                                    <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10, 2012</small>
+                                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non...</p>
+                                    <p><button class="stdbtn btn_lime">Approve</button> <button class="stdbtn">Decline</button></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slide_wrap">
+                                <div class="slide_img"><img src="{{ asset('bundles/emprunt/images/thumbs/image3.png') }}" alt="" /></div>
+                                <div class="slide_content">
+                                    <h4><a href="">Ancient Technology</a></h4>
+                                    <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10, 2012</small>
+                                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non...</p>
+                                    <p><button class="stdbtn btn_lime">Approve</button> <button class="stdbtn">Decline</button></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slide_wrap">
+                                <div class="slide_img"><img src="{{ asset('bundles/emprunt/images/thumbs/image4.png') }}" alt="" /></div>
+                                <div class="slide_content">
+                                    <h4><a href="">Bird's Nest Soup</a></h4>
+                                    <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10, 2012</small>
+                                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non...</p>
+                                    <p><button class="stdbtn btn_lime">Approve</button> <button class="stdbtn">Decline</button></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!--widgetcontent-->
+            </div><!--widgetbox-->
+
+            <div class="widgetbox">
+                <div class="title"><h3>Event Calendar</h3></div>
+                <div class="widgetcontent">
+                    <div id="datepicker"></div>
+                </div><!--widgetcontent-->
+            </div><!--widgetbox-->
+
+        </div><!--one_half-->
+        <div class="one_half last">            
+
+            <div class="widgetbox">
+                <div class="title"><h3>Recent Activity</h3></div>
+                <div class="widgetcontent">
+                    <ul class="recent_list">
+                        <li class="user new">
+                            <div class="msg">
+                                <a href="">Justin Meller</a> added <a href="">John Doe</a> as Admin.
+                            </div>
+                        </li>
+                        <li class="call new">
+                            <div class="msg">
+                                You missed a call from <a href="">Porfirio</a>
+                            </div>
+                        </li>
+                        <li class="calendar new">
+                            <div class="msg">
+                                <a href="">Katherine Kate</a> invited you in an event <a href="">Rock Party</a>.
+                            </div>
+                        </li>
+                        <li class="settings">
+                            <div class="msg">
+                                <a href="">Jane Doe</a> updated her profile.
+                            </div>
+                        </li>
+                        <li class="user">
+                            <div class="msg">
+                                <a href="">Jet Lee</a> is now following you.
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="msgmore"><a href="">View All Activities</a></div>
+                </div><!--widgetcontent-->
+            </div><!--widgetbox-->
+
+            <div class="widgetbox">
+                <div class="title"><h3>Statements</h3></div>
+                <div class="widgetcontent padding0 statement">
+                    <table cellpadding="0" cellspacing="0" border="0" class="stdtable">
+                        <colgroup>
+                            <col class="con0" />
+                            <col class="con1" />
+                            <col class="con0" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th class="head0">Date</th>
+                                <th class="head1">Sales</th>
+                                <th class="head0">Earnings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01/12/12</td>
+                                <td>10</td>
+                                <td>$250.12</td>
+                            </tr>
+                            <tr>
+                                <td>01/11/12</td>
+                                <td>5</td>
+                                <td>$100.43</td>
+                            </tr>
+                            <tr>
+                                <td>01/10/12</td>
+                                <td>22</td>
+                                <td>$1010.00</td>
+                            </tr>
+                            <tr>
+                                <td>01/09/12</td>
+                                <td>21</td>
+                                <td>$1000.23</td>
+                            </tr>
+                            <tr>
+                                <td>01/08/12</td>
+                                <td>14</td>
+                                <td>$500.22</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><!--widgetcontent-->
+            </div><!--widgetbox-->
+
+        </div>
+
+
+    </div><!-- #updates -->
+
+    <div id="activities" class="subcontent" style="display: none;">
+        &nbsp;
+    </div><!-- #activities -->
+
+</div><!--contentwrapper-->
+{% endblock %}
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-1.7.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-ui-1.8.16.custom.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.cookie.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.uniform.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.bxSlider.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.slimscroll.js') }}"></script>
+
+
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/general.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/widgets.js') }}"></script>
+<script type="text/javascript">
+    //jQuery('body').addClass('withmenucoll2');
+</script>
+<!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+{% endblock %}  

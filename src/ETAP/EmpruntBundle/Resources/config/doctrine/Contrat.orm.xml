@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="ETAP\EmpruntBundle\Entity\Contrat" table="CONTRAT">
+    <indexes>
+      <index name="IDX_5F7167891378FADC" columns="IDBANQUE"/>
+      <index name="IDX_5F7167892396D9F1" columns="IDBESOIN"/>
+    </indexes>
+    <id name="id" type="integer" column="ID">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="datesignature" type="datetime" column="DATESIGNATURE" nullable="true"/>
+    <field name="dureeremboursement" type="integer" column="DUREEREMBOURSEMENT" nullable="true"/>
+    <field name="intervalleremboursement" type="string" column="INTERVALLEREMBOURSEMENT" length="20" nullable="true"/>
+    <field name="marge" type="decimal" column="MARGE" precision="10" scale="3" nullable="true"/>
+    <field name="monnaiepayement" type="string" column="MONNAIEPAYEMENT" length="20" nullable="true"/>
+    <field name="montantemprunt" type="integer" column="MONTANTEMPRUNT" nullable="true"/>
+    <field name="nbrtirage" type="integer" column="NBRTIRAGE" nullable="true"/>
+    <field name="refcontrat" type="integer" column="REFCONTRAT" nullable="true"/>
+    <field name="tauxdirecteur" type="decimal" column="TAUXDIRECTEUR" precision="10" scale="3" nullable="true"/>
+    <many-to-one field="idbanque" target-entity="Banque">
+      <join-columns>
+        <join-column name="IDBANQUE" referenced-column-name="ID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idbesoin" target-entity="Besoin">
+      <join-columns>
+        <join-column name="IDBESOIN" referenced-column-name="ID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idcommission" target-entity="Commission" mapped-by="idcontrat"/>
+  </entity>
+</doctrine-mapping>

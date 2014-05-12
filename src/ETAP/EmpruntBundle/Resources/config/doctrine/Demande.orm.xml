@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="ETAP\EmpruntBundle\Entity\Demande" table="DEMANDE">
+    <id name="id" type="integer" column="ID">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="datedemande" type="string" column="DATEDEMANDE" nullable="true"/>
+    <field name="dureecredit" type="integer" column="DUREECREDIT" nullable="true"/>
+    <field name="monnaiecredit" type="string" column="MONNAIECREDIT" length="20" nullable="true"/>
+    <field name="montantcredit" type="decimal" column="MONTANTCREDIT" precision="10" scale="3" nullable="true"/>
+    <field name="natureoperation" type="string" column="NATUREOPERATION" length="20" nullable="true"/>
+    <field name="refdemande" type="string" column="REFDEMANDE" length="10" nullable="true"/>
+  </entity>
+</doctrine-mapping>

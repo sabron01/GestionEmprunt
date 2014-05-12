@@ -1,0 +1,24 @@
+ConsulterDemande:
+    pattern:  /ConsulterDemande
+    defaults: { _controller: "EmpruntBundle:Demande:consulterDemande" }
+    
+AjouterDemande:
+    pattern:  /AjouterDemande
+    defaults: { _controller: "EmpruntBundle:Demande:ajouterDemande" }
+
+display_request:
+    pattern:  /display/{id}
+    defaults: { _controller: "EmpruntBundle:Demande:displayRequestForm" }
+
+ModifierDemande:
+    pattern:  /{id}/ModifierDemande
+    defaults: { _controller: "EmpruntBundle:Demande:modifierDemande" }
+
+demande_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EmpruntBundle:Demande:edit" }
+
+demande_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EmpruntBundle:Demande:update" }
+    requirements: { _method: post|put }

@@ -1,0 +1,16 @@
+ConsulterContrat:
+    pattern:  /
+    defaults: { _controller: "EmpruntBundle:Contrat:consulterContrat" }
+
+AjouterContrat:
+    pattern:  /AjouterContrat
+    defaults: { _controller: "EmpruntBundle:Contrat:ajouterContrat" }
+
+display_contrat:
+    pattern:  /display/{id}
+    defaults: { _controller: "EmpruntBundle:Contrat:displayContratForm" }
+
+ModifierContrat:
+    pattern:  /ModifierContrat/{id}
+    defaults: { _controller: "EmpruntBundle:Demande:modifierContrat" }
+

@@ -1,0 +1,23 @@
+<div id="tirage_{{ id }}">
+    <div style="margin-left: 15px" class="contenttitle2">
+        <h3>Tirage {{ id }}</h3>                                      
+    </div>                                                                  
+    <p>
+        <label>Réference Tirage</label>
+        <span class="field">{{ form_widget(form_tirage.reftirage) }}</span>
+    </p>
+    <p>
+        <label>Montant </label>
+        <span class="field">{{ form_widget(form_tirage.montant) }}</span>
+    </p>
+    <p>
+        <label>Date de valeur du Tirage </label>
+        <span class="field">{{ form_widget(form_tirage.datevaleur) }}</span>
+    </p>    
+    <p>
+        <label></label>
+        <span class="field">
+            <button onclick="deleteBloc({{ id }})" class="stdbtn btn_red">Enlever Bloc</button>                                            
+        </span>                                        
+    </p>       
+</div>  

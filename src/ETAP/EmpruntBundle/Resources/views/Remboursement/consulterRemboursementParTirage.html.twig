@@ -1,0 +1,293 @@
+{% extends "EmpruntBundle::layout.html.twig" %}
+{% block title %} {{ parent() }} | Accueil {% endblock %}
+{% block centercontent %}
+<div class="pageheader notab">
+    <h1 class="pagetitle">Gestion des Rembourements</h1>
+    <span class="pagedesc"></span>
+</div><!--pageheader-->
+<div id="contentwrapper" class="contentwrapper">
+
+    <div class="contenttitle2">
+        <h3>Sélectionner un contrat</h3>
+    </div><!--contenttitle-->
+    <form class="stdform stdform2" method="post" action="#">
+        <p>
+            <label>Réference Contrat</label>
+            <span class="field">            
+                <select onchange="" name="selection" id="contrat_id">
+                    <option value="">Sélectionner un contrat</option>
+                    <option value="">Contrat 1</option>
+                                    {% for entity in entities_contrats %}
+                    <option value="{{ entity.id }}">{{ entity.refcontrat }}</option>
+                                    {% endfor %}
+                </select>              
+            </span>
+        </p>   
+        <div id="form_request"></div>
+    </form>
+
+    <div class="contenttitle2">
+        <h3>Sélectionner un Tirage</h3>
+    </div><!--contenttitle-->
+    <form class="stdform stdform2" method="post" action="#">
+        <p>
+            <label>Réference tirage</label>
+            <span class="field">            
+                <select onchange="" name="selection" id="tirage_id">
+                    <option value="">Sélectionner un tirage</option>
+                    <option value="">tirage 1</option>
+                                    {% for entity in entities_contrats %}
+                    <option value="{{ entity.id }}">{{ entity.reftirage }}</option>
+                                    {% endfor %}
+                </select>              
+            </span>
+        </p>   
+        <div id="form_request"></div>
+    </form>
+
+    <div class="contenttitle2">
+        <h3>Date</h3>
+    </div><!--contenttitle-->
+
+    <div class="overviewhead">
+        <!--floatright-->
+        Date de tirage: &nbsp;<input class="width100" type="date" id="datepickfrom" />
+    </div><!--overviewhead-->
+
+
+    <div class="contenttitle2">
+        <h3>Remboursement</h3>
+    </div><!--contenttitle-->
+    <table cellpadding="0" cellspacing="0" border="0" class="stdtable" id="dyntable2">
+        <colgroup>
+            <col class="con0" style="width: 2%" />
+            <col class="con1" />
+            <col class="con0" />
+            <col class="con1" />
+            <col class="con0" />
+            <col class="con1" />
+            <col class="con0" />
+            <col class="con1" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th class="head0 nosort"><input type="checkbox" /></th>
+                <th class="head0">Echéance</th>
+                <th class="head1">Principal</th>
+                <th class="head0">Nbr Jours</th>
+                <th class="head1">Taux intérêt</th>
+                <th class="head0">Intérêt</th>
+                <th class="head1">Total à rembourser</th>
+                <th class="head0">Restant du</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th class="head0">
+                    <span class="center">
+                        <input type="checkbox" />
+                    </span>
+                </th>
+                <th class="head0">Echéance</th>
+                <th class="head1">Principal</th>
+                <th class="head0">Nbr Jours</th>
+                <th class="head1">Taux intérêt</th>
+                <th class="head0">Intérêt</th>
+                <th class="head1">Total à rembourser</th>
+                <th class="head0">Restant du</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr class="gradeX">
+                <td align="center">
+                    <span class="center">
+                        <input type="checkbox" />
+                    </span>
+                </td>
+                <td>30-nov-10</td>
+                <td>15 000 000,00</td>
+                <td>132</td>
+                <td class="center">2,333130</td>
+                <td class="center">1 283 221,50</td>
+                <td class="center">16 283 221,50</td>                
+                <td class="center">135 000 000,00</td>                
+            </tr>
+            <tr class="gradeX">
+                <td align="center">
+                    <span class="center">
+                        <input type="checkbox" />
+                    </span>
+                </td>
+                <td>31-mai-11</td>
+                <td>15 000 000,00</td>
+                <td>182</td>
+                <td class="center">2,208750</td>
+                <td class="center">1 507 471,88</td>
+                <td class="center">16 507 471,88</td>
+                <td class="center">120 000 000,00</td>
+            </tr>
+            <tr class="gradeX">
+                <td align="center">
+                    <span class="center">
+                        <input type="checkbox" />
+                    </span>
+                </td>
+                <td>30-nov-11</td>
+                <td>15 000 000,00</td>
+                <td>183</td>
+                <td class="center">2,153750</td>
+                <td class="center">1 313 787,50</td>
+                <td class="center">16 313 787,50</td>
+                <td class="center">105 000 000,00</td>
+            </tr>     
+            <tr class="gradeX">
+                <td align="center">
+                    <span class="center">
+                        <input type="checkbox" />
+                    </span>
+                </td>
+                <td>30-mai-12</td>
+                <td>15 000 000,00</td>
+                <td>182</td>
+                <td class="center">2,489720</td>
+                <td class="center">1 321 626,37</td>
+                <td class="center">16 321 626,37</td>
+                <td class="center">90 000 000,00</td>
+            </tr>
+            <tr class="gradeX">
+                <td align="center">
+                    <span class="center">
+                        <input type="checkbox" />
+                    </span>
+                </td>
+                <td>30-nov-12</td>
+                <td>15 000 000,00</td>
+                <td>132</td>
+                <td class="center">2,486400</td>
+                <td class="center">1 143 744,00</td>
+                <td class="center">16 143 744,00</td>
+                <td class="center">75 000 000,00</td>
+            </tr>
+            <tr class="gradeX">
+                <td align="center">
+                    <span class="center">
+                        <input type="checkbox" />
+                    </span>
+                </td>
+                <td>30-mai-13</td>
+                <td>15 000 000,00</td>
+                <td>181</td>
+                <td class="center">2,278000</td>
+                <td class="center">858 995,83</td>
+                <td class="center">15 858 995,83</td>
+                <td class="center">60 000 000,00</td>
+            </tr>
+            <tr class="gradeX">
+                <td align="center">
+                    <span class="center">
+                        <input type="checkbox" />
+                    </span>
+                </td>
+                <td>29-nov-13</td>
+                <td>15 000 000,00</td>
+                <td>183</td>
+                <td class="center">2,165260</td>
+                <td class="center">660 404,30</td>
+                <td class="center">15 660 404,30</td>
+                <td class="center">45 000 000,00</td>
+            </tr>            
+            <tr class="gradeC">
+                <td align="center"><span class="center">
+                        <input type="checkbox" />
+                    </span></td>
+                <td>30-mai-14</td>
+                <td>15 000 000,00</td>
+                <td>182</td>
+                <td class="center">2,094100</td>
+                <td class="center">476 407,75</td>
+                <td class="center">0,00</td>
+                <td class="center">30 000 000,00</td>
+            </tr>
+            <tr class="gradeC">
+                <td align="center"><span class="center">
+                        <input type="checkbox" />
+                    </span></td>
+                <td>30-nov-14</td>
+                <td>15 000 000,00</td>
+                <td>184</td>
+                <td class="center">0,000000</td>
+                <td class="center">0,00</td>
+                <td class="center">0,00</td>
+                <td class="center">15 000 000,00</td>
+            </tr>
+            <tr class="gradeC">
+                <td align="center"><span class="center">
+                        <input type="checkbox" />
+                    </span></td>
+                <td>31-mai-15</td>
+                <td>15 000 000,00</td>
+                <td>182</td>
+                <td class="center">0,000000</td>
+                <td class="center">0,00</td>
+                <td class="center">0,00</td>
+                <td class="center">0,00</td>
+            </tr>   
+        </tbody>
+    </table> 
+    <br clear="all" />
+
+    <table cellpadding="0" cellspacing="0" border="0" class="stdtable overviewtable">
+        <colgroup>
+            <col class="con0" width="20%" />
+            <col class="con1" width="20%" />
+            <col class="con0" width="20%" />
+            <col class="con1" width="20%" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th class="head0">Etat de Remboursement</th>
+                <th class="head1">Principal</th>
+                <th class="head0">Interets</th>
+                <th class="head1">Total a Rembourser</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="progress progress150">
+                        <div class="bar"><div style="width: 80%;" class="value bluebar"></div></div>
+                    </div>
+                </td>
+                <td class="center">150 000 000,00</td>
+                <td class="center">8 565 659,13</td>
+                <td class="center">113 089 251,38</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br clear="all" />
+
+    <div id="action_block">
+        <p class="stdformbutton">
+            <button class="stdbtn btn_yellow" id="update_form">Modifier Paramètres</button>                        
+            <button class="stdbtn" style="float: right;">Retour</button>
+        </p>  
+    </div>
+
+</div><!--contentwrapper-->
+{% endblock %}
+{% block javascripts %}
+
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-1.7.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-ui-1.8.16.custom.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.cookie.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.dataTables.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/general.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/tables.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/remboursement.js') }}"></script>
+
+<!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+{% endblock %} 

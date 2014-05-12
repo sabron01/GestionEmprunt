@@ -1,0 +1,42 @@
+ConsulterOffre:
+    pattern:  /ConsulterOffre
+    defaults: { _controller: "EmpruntBundle:Offre:consulterOffre" }
+
+Depouillement:    
+    pattern:  /OpportunitesFinancement.html/depouillement.html
+    defaults: { _controller: EmpruntBundle:Offre:depouillement }  
+    
+display_offer_list:
+    pattern:  /OpportunitesFinancement.html/depouillement/display/{id}
+    defaults: { _controller: "EmpruntBundle:Offre:displayOfferList" }   
+
+AjouterOffre:
+    pattern:  /AjouterOffre
+    defaults: { _controller: "EmpruntBundle:Offre:ajouterOffre" }
+    
+display_offer:
+    pattern:  /display/{id}
+    defaults: { _controller: "EmpruntBundle:Offre:displayOfferForm" }
+
+ModifierOffre:
+    pattern:  /{id}/ModifierOffre
+    defaults: { _controller: "EmpruntBundle:Offre:modifier" }
+
+offre_create:
+    pattern:  /create
+    defaults: { _controller: "EmpruntBundle:Offre:create" }
+    requirements: { _method: post }
+
+offre_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EmpruntBundle:Offre:edit" }
+
+offre_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EmpruntBundle:Offre:update" }
+    requirements: { _method: post|put }
+
+offre_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EmpruntBundle:Offre:delete" }
+    requirements: { _method: post|delete }

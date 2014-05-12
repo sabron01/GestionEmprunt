@@ -1,0 +1,34 @@
+consulterJoursFeries:
+    pattern: /consulter
+    defaults: { _controller: "EmpruntBundle:Jourferie:consulterJoursFeries" }    
+
+jourferie:
+    pattern:  /
+    defaults: { _controller: "EmpruntBundle:Jourferie:index" }
+
+jourferie_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EmpruntBundle:Jourferie:show" }
+
+jourferie_new:
+    pattern:  /new
+    defaults: { _controller: "EmpruntBundle:Jourferie:new" }
+
+jourferie_create:
+    pattern:  /create
+    defaults: { _controller: "EmpruntBundle:Jourferie:create" }
+    requirements: { _method: post }
+
+jourferie_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EmpruntBundle:Jourferie:edit" }
+
+jourferie_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EmpruntBundle:Jourferie:update" }
+    requirements: { _method: post|put }
+
+jourferie_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EmpruntBundle:Jourferie:delete" }
+    requirements: { _method: post|delete }

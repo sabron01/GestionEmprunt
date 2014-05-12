@@ -1,0 +1,106 @@
+{% if current == 1  %}
+    <ul>
+        <li {% if choice == 111 or choice ==  112 %}class="current"{% endif %}>
+            <a href="#demande" class="editor">Demande</a>
+            <span class="arrow"></span>
+            <ul id="demande">
+                <li {% if choice == 111  %}class="current"{% endif %}><a href="{{ path('AjouterDemande') }}">Ajouter demande</a></li>
+                <li {% if choice == 112  %}class="current"{% endif %}><a href="{{ path('ConsulterDemande') }}">Consulter demande</a></li>
+            </ul>
+        </li>
+        
+        <li {% if choice == 113 or choice ==  114 %}class="current"{% endif %}>
+            <a href="#offre" class="editor">Offre</a>
+            <span class="arrow"></span>
+            <ul id="offre">
+                <li {% if choice == 113  %}class="current"{% endif %}><a href="{{ path('AjouterOffre') }}">Ajouter offre</a></li>
+                <li {% if choice == 114  %}class="current"{% endif %}><a href="{{ path('ConsulterOffre') }}">Consulter offre</a></li>
+            </ul>
+        </li>
+        
+        <li {% if choice == 115  %}class="current"{% endif %}>
+            <a href="{{ path('Depouillement') }}" class="gallery">Dépouillement</a>
+        </li>
+       
+    </ul>
+    <a class="togglemenu"></a>
+    <br /><br />
+{% endif %}    
+{% if current == 2  %}
+    <ul>
+        <li {% if choice == 221 or choice ==  222 %}class="current"{% endif %}><a href="#besoin" class="editor">Besoin</a>
+            <span class="arrow"></span>
+            <ul id="besoin">
+                <li {% if choice == 221 %}class="current"{% endif %}><a href="{{ path('ConsulterBesoin') }}">Consulter Besoin</a></li>
+            </ul>
+        </li>     
+        <li {% if choice == 223 or choice ==  224 %}class="current"{% endif %}><a href="#concession" class="editor">Concession</a>
+            <span class="arrow"></span>
+            <ul id="concession">
+                <li {% if choice == 223 %}class="current"{% endif %}><a href="{{ path('ConsulterConcession') }}">Consulter Concession</a></li>
+            </ul>
+        </li>           
+    </ul>
+    <a class="togglemenu"></a>
+    <br /><br />
+{% endif %} 
+{% if current == 3  %}
+    <ul>
+        <li {% if choice == 331 or choice ==  332 %}class="current"{% endif %}><a href="#contrat" class="editor">Contrat</a>
+            <span class="arrow"></span>
+            <ul id="contrat">
+                <li {% if choice == 331  %}class="current"{% endif %}><a href="{{ path('AjouterContrat') }}">Ajouter Contrat</a></li>
+                <li {% if choice == 332 %}class="current"{% endif %}><a href="{{ path('ConsulterContrat') }}">Consulter Contrat</a></li>
+            </ul>
+        </li>                      
+    </ul>
+    <a class="togglemenu"></a>
+    <br /><br />
+{% endif %}
+{% if current == 4  %}
+    <ul>
+        <li {% if choice == 441 or choice ==  442 or choice ==  443 or choice ==  444 %}class="current"{% endif %}><a href="#remboursement" class="editor">Remboursement</a>
+            <span class="arrow"></span>
+            <ul id="remboursement">
+                <li {% if choice == 441  %}class="current"{% endif %}><a href="{{ path('generateRemboursement') }}">Génération du Tableau de Remboursement</a></li>
+                <li {% if choice == 442 %}class="current"{% endif %}><a href="{{ path('consulterRemboursementParTirage') }}">Consulter Tableau de Remboursement par tirage</a></li>
+                <li {% if choice == 443 %}class="current"{% endif %}><a href="{{ path('repartitionParConcession') }}">Répartition par concession</a></li>
+                <li {% if choice == 444 %}class="current"{% endif %}><a href="{{ path('consulterRemboursementParConcession') }}">Consulter Tableau de Remboursement par concession</a></li>
+            </ul>
+        </li>                      
+    </ul>
+    <a class="togglemenu"></a>
+    <br /><br />
+{% endif %}    
+{% if current == 5  %}
+    <ul>        
+        <li {% if choice == 551 %}class="current"{% endif %}>
+            <a href="{{ path('consulterJoursFeries') }}" class="gallery">Jours Fériés</a>
+        </li> 
+    </ul>
+    <a class="togglemenu"></a>
+    <br /><br />
+{% endif %}     
+{% if current == 6  %}
+    <ul>
+        <li {% if choice == 661  %}class="current"{% endif %}>
+            <a href="{{ path('consulterEtats') }}" class="gallery">Etats</a>
+        </li>                              
+    </ul>
+    <a class="togglemenu"></a>
+    <br /><br />
+{% endif %}     
+{% if current == 7  %}
+    <ul>
+        <li {% if choice == 771 or choice ==  772 %}class="current"{% endif %}>
+            <a href="#utilisateur" class="editor">Utilsateur</a>
+            <span class="arrow"></span>
+            <ul id="utilisateur">
+                <li {% if choice == 771  %}class="current"{% endif %}><a href="{{ path('AjouterUtilisateur') }}">Ajouter utilisateur</a></li>
+                <li {% if choice == 772  %}class="current"{% endif %}><a href="{{ path('ConsulterUtilisateur') }}">Consulter utilisateur</a></li>
+            </ul>
+        </li>     
+    </ul>
+    <a class="togglemenu"></a>
+    <br /><br />
+{% endif %}        

@@ -1,0 +1,42 @@
+<div class="one_half">
+    <div class="widgetbox">
+        <div class="title"><h3>Les Offres</h3></div>
+        <div class="widgetcontent">
+            <ul id="slidercontent">
+                {% for entity in entities %}
+                {% set link = "bundles/emprunt/upload/banque/"~entity.idbanque.id~".jpg"  %}
+                <li>
+                    <div class="slide_wrap">
+                        <div class="slide_img"><img src="{{  asset(link) }}" alt="" width="100" height="60" /></div>
+                        <div class="slide_content">
+                            <h4><a href="">{{ entity.codeoffre }}</a></h4>
+                            <small>Proposé par: <a href=""><strong>{{ entity.idbanque }}</strong></a> - {{ entity.dateoffre }}</small>
+                            <p>{{ entity.natureoffre }} {{ entity.montantpropose }} {{ entity.marge }}</p>
+                            <p><button class="stdbtn btn_lime">Approve</button> <button class="stdbtn">Decline</button></p>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div><!--widgetcontent-->
+    </div><!--widgetbox-->
+</div>
+<div class="one_half last">
+    <div class="widgetbox">
+        <div class="title"><h3>Offre Retenu</h3></div>
+        <div class="widgetcontent">
+            {% set link = "bundles/emprunt/upload/banque/"~offer.idbanque.id~".jpg"  %}
+            <li>
+                <div class="slide_wrap">
+                    <div class="slide_img"><img src="{{  asset(link) }}" alt="" width="100" height="60" /></div>
+                    <div class="slide_content">
+                        <h4><a href="">{{ offer.codeoffre }}</a></h4>
+                        <small>Proposé par: <a href=""><strong>{{ offer.idbanque }}</strong></a> - {{ offer.dateoffre }}</small>
+                        <p>{{ offer.natureoffre }} {{ offer.montantpropose }} {{ offer.marge }}</p>
+                        <p><button class="stdbtn btn_lime">Approve</button> <button class="stdbtn">Decline</button></p>
+                    </div>
+                </div>
+            </li>
+        </div><!--widgetcontent-->
+    </div><!--widgetbox-->
+</div>

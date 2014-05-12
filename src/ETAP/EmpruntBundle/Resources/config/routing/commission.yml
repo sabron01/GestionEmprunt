@@ -1,0 +1,30 @@
+commission:
+    pattern:  /
+    defaults: { _controller: "EmpruntBundle:Commission:index" }
+
+commission_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EmpruntBundle:Commission:show" }
+
+commission_new:
+    pattern:  /new
+    defaults: { _controller: "EmpruntBundle:Commission:new" }
+
+commission_create:
+    pattern:  /create
+    defaults: { _controller: "EmpruntBundle:Commission:create" }
+    requirements: { _method: post }
+
+commission_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EmpruntBundle:Commission:edit" }
+
+commission_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EmpruntBundle:Commission:update" }
+    requirements: { _method: post|put }
+
+commission_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EmpruntBundle:Commission:delete" }
+    requirements: { _method: post|delete }
