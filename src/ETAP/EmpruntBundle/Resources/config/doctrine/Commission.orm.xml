@@ -4,7 +4,7 @@
     <id name="id" type="integer" column="ID">
       <generator strategy="SEQUENCE"/>
     </id>
-    <field name="typecommission" type="string" column="TYPECOMMISSION" length="20" nullable="true"/>
+    <field name="typecommission" type="string" column="TYPECOMMISSION" length="50" nullable="true"/>
     <field name="valeurcommission" type="integer" column="VALEURCOMMISSION" nullable="true"/>
     <many-to-many field="idcontrat" target-entity="Contrat" inversed-by="idcommission">
       <join-table name="contratcommission">

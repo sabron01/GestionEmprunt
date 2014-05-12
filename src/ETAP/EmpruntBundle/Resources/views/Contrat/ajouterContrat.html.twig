@@ -6,213 +6,136 @@
     <span class="pagedesc"></span>
 </div><!--pageheader-->
 <div id="contentwrapper" class="contentwrapper">        
+    {{ form_errors(form_contrat) }} 
+    {% if (class_alert !="") %}
+    <div class="notibar {{ class_alert }}">
+        <a class="close"></a>
+        <p>{{ notify }}</p>
+    </div>
+    {% endif %}
     <div id="vertical" class="subcontent">
-
-
-
         <!-- START OF VERTICAL WIZARD -->
-        <form class="stdform" id="form_convention" method="post" action="{{ path('AjouterContrat') }}" >
+        <form class="stdform" id="form_tirages" method="post" action="{{ path('AjouterContrat') }}" novalidate=true>
 
             <div id="wizard3" class="wizard verwizard">
 
-                <ul class="verticalmenu">
+                <ul class="verticalmenu anchor">
                     <li>
-                        <a href="#wiz1step3_1">
+                        <a href="#" class="selected" isdone="1" rel="1">
                             <span class="label">Etape 1: Contrat</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#wiz1step3_2">
+                        <a href="#" class="disabled" isdone="0" rel="2">
                             <span class="label">Etape 2: Tirage</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#wiz1step3_3">
+                        <a href="#" class="disabled" isdone="0" rel="3">
                             <span class="label">Etape 3: Commission</span>
                         </a>
                     </li>
                 </ul>
 
-                <div id="wiz1step3_1" class="formwiz">
-                    <h4>Etape 1: Contrat</h4> 
+                <!--#wiz1step3_1-->
 
-                    <p>
-                        <label>Réference Contrat</label>
+                <!--#wiz1step3_2-->
 
-                        <span class="field">
+                <!--#wiz1step3_3-->
+
+                <div class="stepContainer" style="height: 631px;">
+                    <div id="wiz1step3_1" class="formwiz content" style="display: block;">
+                        <h4>Etape 1: Contrat</h4> 
+
+                        <p>
+                            <label>Réference Contrat</label>
+
+                            <span class="field">
                                         {{ form_widget(form_contrat.refcontrat) }}                                    
                                         {{ form_widget(form_contrat._token) }}                
-                        </span>
-                    </p>                                
+                            </span>
+                        </p>                                
 
-                    <p>
-                        <label>Banque</label>
+                        <p>
+                            <label>Banque</label>
 
-                        <span class="field">
+                            <span class="field">
                                         {{ form_widget(form_contrat.idbanque) }}    
-                            <span> <button class="stdbtn btn_orange" style="color:white">Ajouter une banque</button></span>
-                        </span>
-                    </p>
-
-                    <p>
-                        <label>Date de Signature</label>
-                        <span class="field">{{ form_widget(form_contrat.datesignature) }} </span>
-                    </p>
-
-                    <p>
-                        <label>Dur&eacute;e de Remboursement</label>
-                        <span class="field">{{ form_widget(form_contrat.dureeremboursement) }} </span>
-                    </p>
-
-                    <p>
-                        <label>Besoin</label>
-                        <span class="field">{{ form_widget(form_contrat.idbesoin) }} </span>
-                    </p>
-
-                    <p>
-                        <label>Montant Emprunt</label>
-                        <span class="field">{{ form_widget(form_contrat.montantemprunt) }} </span>
-                    </p>
-
-                    <p>
-                        <label>Marge</label>
-                        <span class="field">{{ form_widget(form_contrat.marge) }} </span>
-                    </p>
-
-                    <p>
-                        <label>Taux Directeur</label>
-                        <span class="field">{{ form_widget(form_contrat.tauxdirecteur) }} </span>
-                    </p>  
-
-                    <p>
-                        <label>Monnaie de payement</label>
-                        <span class="field">{{ form_widget(form_contrat.monnaiepayement) }} </span>
-                    </p>  
-
-                    <p>
-                        <label>Intervalle de Remboursement</label>
-                        <span class="field">{{ form_widget(form_contrat.intervalleremboursement) }} </span>
-                    </p> 
-
-                </div><!--#wiz1step3_1-->
-
-                <div id="wiz1step3_2" class="formwiz">
-                    <h4>Etape 2: Tirage</h4> 
-                    <input type="hidden" value="1" id="etap_empruntbundle_contrattype_nbrtirage" name="etap_empruntbundle_contrattype[nbrtirage]" class="longinput"></input>                                
-                                {{ form_widget(form_contrat.nbrtirage) }}
-                    <div id="tirage_1">
-                        <div style="margin-left: 15px" class="contenttitle2">
-                            <h3>Tirage 1</h3>                                      
-                        </div>    
-                        <p>
-                            <label>Réference Tirage</label>
-                            <span class="field">{{ form_widget(form_tirage.reftirage) }}</span>
+                                <span> <span class="stdbtn btn_orange anchorbutton add_banque" style="color:white">Ajouter une banque</span></span>
+                            </span>
                         </p>
 
                         <p>
-                            <label>Montant </label>
-                            <span class="field">{{ form_widget(form_tirage.montant) }}</span>
+                            <label>Date de Signature</label>
+                            <span class="field">{{ form_widget(form_contrat.datesignature) }} </span>
                         </p>
 
                         <p>
-                            <label>Date de valeur du Tirage </label>
-                            <span class="field">{{ form_widget(form_tirage.datevaleur) }}</span>
-                        </p>                                  
+                            <label>Dur&eacute;e de Remboursement</label>
+                            <span class="field">{{ form_widget(form_contrat.dureeremboursement) }} </span>
+                        </p>
+
+                        <p>
+                            <label>Besoin</label>
+                            <span class="field">{{ form_widget(form_contrat.idbesoin) }} </span>
+                        </p>
+
+                        <p>
+                            <label>Montant Emprunt</label>
+                            <span class="field">{{ form_widget(form_contrat.montantemprunt) }} </span>
+                        </p>
+
+                        <p>
+                            <label>Marge</label>
+                            <span class="field">{{ form_widget(form_contrat.marge) }} </span>
+                        </p>
+
+                        <p>
+                            <label>Taux Directeur</label>
+                            <span class="field">{{ form_widget(form_contrat.tauxdirecteur) }} </span>
+                        </p>  
+
+                        <p>
+                            <label>Monnaie de payement</label>
+                            <span class="field">{{ form_widget(form_contrat.monnaiepayement) }} </span>
+                            </p>  
+
+                            <p>
+                                <label>Intervalle de Remboursement</label>
+                                <span class="field">{{ form_widget(form_contrat.intervalleremboursement) }} </span>
+                            </p> 
+
+                        </div>
+
                     </div>
-{#                    <ul class="form-tirages" data-prototype="{% filter escape %}{% include 'EmpruntBundle:Form:fields.html.twig' with {'form': form_contrat.tirages.get('prototype')} %}{% endfilter %}"></ul>#}
-                    <p id="btn_new_block_tirage">
-                        <label></label>
-                        <span class="field">
-                            <button id="new_tirage" class="stdbtn btn_orange" style="color:white">Ajouter un tirage</button>
-                        </span>
-                    </p>   
+                    <div class="actionBar">
+                        <div class="loader">Loading</div>
+{#                      <a href="#" class="buttonFinish buttonDisabled">Terminer</a>#}    
+                        <input type="submit" style="float: right"  class="buttonNext" value="Etape Suivante" />
+                    </div>
+                </div><!--#wizard-->
+            </form>
 
-                </div><!--#wiz1step3_2-->
+            <br clear="all"><br>
 
-                <div id="wiz1step3_3">
-                    <h4>Etape 3: Commission</h4>
-                    <p>
-                        <label>Type Commission :</label>
-                        <span class="formwrapper">
-                            <input type="checkbox" name="check2" /> Commission d'agent &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            Valeur : &nbsp; <input type="text" id="etap_empruntbundle_commissiontype_0_valeur" name="etap_empruntbundle_commissiontype_0[valeur]" required="required" class="smallinput width50" style="height: 10px;" > <br />
-                            <input type="checkbox" name="check2"/> Commission de gestion &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                            Valeur : &nbsp; <input type="text" id="etap_empruntbundle_commissiontype_1_valeur" name="etap_empruntbundle_commissiontype_1[valeur]" required="required" class="smallinput width50" style="height: 10px;">  <br />
-                            <input type="checkbox" name="check2"/> Commission d'engagement &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            Valeur : &nbsp; <input type="text" id="etap_empruntbundle_commissiontype_2_valeur" name="etap_empruntbundle_commissiontype_2[valeur]" required="required" class="smallinput width50" style="height: 10px;">  <br /> 
-                        </span>
-                    </p>                                     
-                </div><!--#wiz1step3_3-->
+            <!-- END OF VERTICAL WIZARD -->
 
-            </div><!--#wizard-->
-        </form>
-
-        <br clear="all" /><br />
-
-        <!-- END OF VERTICAL WIZARD -->
-
-    </div><!--#vertical-->                    
-</div><!--contentwrapper-->
+        </div>
+        <!--#vertical-->  
+        <div class="loaders" style="display: none">
+            <img src="{{ asset('bundles/emprunt/images/loaders/loader6.gif') }}" alt="Chargement">
+        </div>    
+    </div><!--contentwrapper-->
 {% endblock %}
 {% block javascripts %}
-<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-1.7.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-ui-1.8.16.custom.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.cookie.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.uniform.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.smartWizard-2.0.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.colorbox-min.js') }}"></script>    
-{#<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/general.js') }}"></script>#}
-<script type="text/javascript">
-    jQuery(document).ready(function() {
-        // Smart Wizard 	
-        jQuery('#wizard3').smartWizard({onFinish: onFinishCallback});
-
-        function onFinishCallback() {
-            jQuery("#form_convention").submit();
-        }
-
-        jQuery(".inline").colorbox({inline: true, width: '60%', height: '500px'});
-
-        jQuery('select, input:checkbox').uniform();
-
-{#        var index = 0;#}
-        
-        var prototype = jQuery('ul.form-tirages').data('prototype');
-
-        jQuery("#new_tirage").click(function() {
-
-{#            var newForm = prototype.replace(/__name__/g, index++);#}
-{#            jQuery("#btn_new_block_tirage").before(newForm);#}
-
-            var id = jQuery("#etap_empruntbundle_contrattype_nbrtirage").val();
-            id = parseInt(id) + 1;
-            var url_display = "/app_dev.php/Contrats.html/tirage/display/" + id;
-            jQuery.ajax({
-                url: url_display,
-                success: function(data) {
-                    jQuery("#btn_new_block_tirage").before(data);
-                    jQuery("#etap_empruntbundle_contrattype_nbrtirage").val(id);
-                },
-                error: function(data) {
-                    alert("Une erreur interne s'est produite, Veuillez réessayer plus tard.");
-                }
-            });
-
-
-        });
-
-    });
-
-    function deleteBloc(id) {
-        jQuery("#tirage_" + id).remove();
-        var id = jQuery("#etap_empruntbundle_contrattype_nbrtirage").val();
-        id = parseInt(id) - 1;
-        jQuery("#etap_empruntbundle_contrattype_nbrtirage").val(id);
-
-    }
-
-</script>
-<!--[if lt IE 9]>
-	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-<![endif]-->
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-1.7.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-ui-1.8.16.custom.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.cookie.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.uniform.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.colorbox-min.js') }}"></script>    
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.alerts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/contrat.js') }}"></script>
+    <!--[if lt IE 9]>
+            <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
 {% endblock %} 

@@ -48,15 +48,10 @@ class ConcessionController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
                 $em->flush();
-                return $this->render('EmpruntBundle:Concession:ajouterConcession.html.twig', array(
-                            'entity' => new Concession(),
-                            'current' => $this->current,
-                            'section' => $this->section,
-                            'choice' => $this->choice,                
-                            'class_alert' => 'msgsuccess',
-                            'notify' => 'Le besoin a été ajoutée avec succès',
-                            'form' => $this->createForm(new AddConcessionType(), $entity)->createView(),
-                ));
+                $this->class_alert = 'msgsuccess';
+                $this->notify = "La concession a été ajoutée avec succès";  
+                $entity = new Concession();
+                $form = $this->createForm(new AddConcessionType(), $entity);                
             }else{
                     $this->class_alert = 'msgerror';
                     $this->notify = "Veuillez vérifier les champs :/"; 
@@ -77,15 +72,11 @@ class ConcessionController extends Controller
 
     public function displayConcessionAction($id) {
         $em = $this->getDoctrine()->getManager();
-
         $entity = $em->getRepository('EmpruntBundle:Concession')->find($id);
-
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Concession entity.');
         }
-
         $form = $this->createForm(new ConcessionType(), $entity);
-
         return $this->render('EmpruntBundle:Concession:displayConcession.html.twig', array(
                     'entity' => $entity,
                     'form' => $form->createView(),

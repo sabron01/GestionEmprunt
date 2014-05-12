@@ -1,52 +1,144 @@
 {% extends "EmpruntBundle::layout.html.twig" %}
-{% block title %} {{ parent() }} | Accueil {% endblock %}
+{% block title %} {{ parent() }} | Ajouter Contrat {% endblock %}
 {% block centercontent %}
 <div class="pageheader notab">
-    <h1 class="pagetitle">Gestion des contrats</h1>
+    <h1 class="pagetitle">Convention de crédit</h1>
     <span class="pagedesc"></span>
 </div><!--pageheader-->
-<div id="contentwrapper" class="contentwrapper">
-
-    <div class="contenttitle2">
-        <h3>Sélectionner un Contrat</h3>
-    </div><!--contenttitle-->
-    <form class="stdform stdform2" method="post" action="#">
-    <p>
-        <label>Code offre</label>
-        <span class="field">
-            
-            <select onchange="" name="selection" id="offre_id">
-                <option value="">Sélectionner un contrat</option>
-                                {% for entity in entities %}
-                <option value="{{ entity.id }}">{{ entity.refcontrat }}</option>
-                                {% endfor %}
-            </select>              
-        </span>
-    </p>
-    <div id="form_request"></div>
-
-    </form>
-    <div id="action_block">
-        <p class="stdformbutton">
-            <button class="stdbtn btn_yellow" id="update_form">Modifier</button>            
-            <button class="stdbtn btn_red">Supprimer</button>
-            <button class="stdbtn" style="float: right;">Retour</button>
-        </p>  
+<div id="contentwrapper" class="contentwrapper">        
+    {{ form_errors(form_contrat) }} 
+    {% if (class_alert !="") %}
+    <div class="notibar {{ class_alert }}">
+        <a class="close"></a>
+        <p>{{ notify }}</p>
     </div>
-      
-</div><!--contentwrapper-->
+    {% endif %}
+    <div id="vertical" class="subcontent">
+        <!-- START OF VERTICAL WIZARD -->
+        <form class="stdform" id="contrat_form" method="post" action="{{ path('SaveAndConsulterTiragesContrat',{'id': entity_contrat.id}) }}" novalidate=true>
+            <span id="current_id" style="display: none">{{ entity_contrat.id }}</span>
+            <div id="wizard3" class="wizard verwizard">
+
+                <ul class="verticalmenu anchor">
+                    <li>
+                        <a href="{{ path('ConsulterContrat',{'id': entity_contrat.id}) }}" class="selected" isdone="1" rel="1">
+                            <span class="label">Etape 1: Contrat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('ConsulterTiragesContrat',{'id': entity_contrat.id}) }}" class="disabled" isdone="0" rel="2">
+                            <span class="label">Etape 2: Tirage</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="disabled" isdone="0" rel="3">
+                            <span class="label">Etape 3: Commission</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!--#wiz1step3_1-->
+
+                <!--#wiz1step3_2-->
+
+                <!--#wiz1step3_3-->
+
+                <div class="stepContainer" style="height: 631px;">
+                    <div id="wiz1step3_1" class="formwiz content" style="display: block;">
+                        <h4>Etape 1: Contrat</h4> 
+
+                        <p>
+                            <label>Réference Contrat</label>
+
+                            <span class="field">
+                                        {{ form_widget(form_contrat.refcontrat) }}                                    
+                                        {{ form_widget(form_contrat._token) }}                
+                            </span>
+                        </p>                                
+
+                        <p>
+                            <label>Banque</label>
+
+                            <span class="field">
+                                        {{ form_widget(form_contrat.idbanque) }}    
+{#                                <span> <button class="stdbtn btn_orange anchorbutton add_banque" style="color:white">Ajouter une banque</button></span>#}
+                            </span>
+                        </p>
+
+                        <p>
+                            <label>Date de Signature</label>
+                            <span class="field">{{ form_widget(form_contrat.datesignature) }} </span>
+                        </p>
+
+                        <p>
+                            <label>Dur&eacute;e de Remboursement</label>
+                            <span class="field">{{ form_widget(form_contrat.dureeremboursement) }} </span>
+                        </p>
+
+                        <p>
+                            <label>Besoin</label>
+                            <span class="field">{{ form_widget(form_contrat.idbesoin) }} </span>
+                        </p>
+
+                        <p>
+                            <label>Montant Emprunt</label>
+                            <span class="field">{{ form_widget(form_contrat.montantemprunt) }} </span>
+                        </p>
+
+                        <p>
+                            <label>Marge</label>
+                            <span class="field">{{ form_widget(form_contrat.marge) }} </span>
+                        </p>
+
+                        <p>
+                            <label>Taux Directeur</label>
+                            <span class="field">{{ form_widget(form_contrat.tauxdirecteur) }} </span>
+                        </p>  
+
+                        <p>
+                            <label>Monnaie de payement</label>
+                            <span class="field">{{ form_widget(form_contrat.monnaiepayement) }} </span>
+                            </p>  
+
+                            <p>
+                                <label>Intervalle de Remboursement</label>
+                                <span class="field">{{ form_widget(form_contrat.intervalleremboursement) }} </span>
+                            </p> 
+
+                        </div>
+
+                    </div>
+                    <div class="actionBar">
+                        <div class="loader">Loading</div>
+{#                      <a href="#" class="buttonFinish buttonDisabled">Terminer</a>#} 
+                        <span class="stdbtn btn_yellow" id="update_form">Modifier</span>  
+                        <span class="stdbtn btn_blue" id="save_edit">Enregistrer</span>                        
+                        <input type="submit" style="float: right"  class="buttonNext" value="Etape Suivante" />                       
+                    </div>
+                </div><!--#wizard-->
+            </form>
+
+            <br clear="all"><br>
+
+            <!-- END OF VERTICAL WIZARD -->
+
+        </div>
+        <!--#vertical-->  
+        <div class="loaders" style="display: none">
+            <img src="{{ asset('bundles/emprunt/images/loaders/loader6.gif') }}" alt="Chargement">
+        </div>    
+    </div><!--contentwrapper-->
 {% endblock %}
 {% block javascripts %}
-
-<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-1.7.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-ui-1.8.16.custom.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.cookie.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/general.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/contrat.js') }}"></script>
-
-<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/excanvas.min.js') }}"></script><![endif]-->
-<!--[if lt IE 9]>
-        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-<![endif]-->
-
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-1.7.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-ui-1.8.16.custom.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.cookie.js') }}"></script>
+{#    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.uniform.min.js') }}"></script>#}
+{#    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.colorbox-min.js') }}"></script>    #}
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.alerts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/general.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/edit_contrat.js') }}"></script>
+    <!--[if lt IE 9]>
+            <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
 {% endblock %} 

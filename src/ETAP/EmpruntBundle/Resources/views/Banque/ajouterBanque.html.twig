@@ -1,0 +1,15 @@
+<form id="form_bank" method="post" action="{{ path('AjouterBanque') }}" novalidate>
+    Nom Banque
+    <input type="text" id="etap_empruntbundle_banquetype_nombanque" name="etap_empruntbundle_banquetype[nombanque]">
+    Nom Responsable
+    <input type="text" id="etap_empruntbundle_banquetype_nomresponsable" name="etap_empruntbundle_banquetype[nomresponsable]">
+    Pays
+    {{ form_widget(form.idpays) }}
+    E-mail
+    <input type="text" id="etap_empruntbundle_banquetype_mail" name="etap_empruntbundle_banquetype[mail]">
+    Telephone
+    <input type="text" id="etap_empruntbundle_banquetype_telephone" name="etap_empruntbundle_banquetype[telephone]">
+    Fax
+    <input type="text" id="etap_empruntbundle_banquetype_fax" name="etap_empruntbundle_banquetype[fax]">
+    {{ form_widget(form._token) }}
+</form> 

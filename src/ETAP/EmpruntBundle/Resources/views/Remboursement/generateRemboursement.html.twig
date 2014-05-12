@@ -6,33 +6,35 @@
     <span class="pagedesc"></span>
 </div><!--pageheader-->
 <div id="contentwrapper" class="contentwrapper">
-
+    <div class="notibar msgsuccess" style="display: none">
+            <a class="close"></a>
+            <p>Le Tableau de Remboursement a été généré avec succès</p>
+    </div>
     <div class="contenttitle2">
-        <h3>Sélectionner une demande</h3>
+        <h3>Sélectionner un contrat</h3>
     </div><!--contenttitle-->
     <form class="stdform stdform2" method="post" action="#">
-    <p>
-        <label>Réference demande</label>
-        <span class="field">
-            
-            <select onchange="" name="selection" id="demande_id">
-                <option value="">Sélectionner une demande</option>
-                                {% for entity in entities %}
-                <option value="{{ entity.id }}">{{ entity.refdemande }}</option>
-                                {% endfor %}
-            </select>              
-        </span>
-    </p>
-    <div id="form_request"></div>
-
+        <p>
+            <label>Réference Contrat</label>
+            <span class="field">            
+                <select onchange="" name="selection" id="contrat_id">
+                    <option value="0">Sélectionner un contrat</option>
+                    {% for entity in entities_contrats %}
+                    <option value="{{ entity.id }}">{{ entity.refcontrat }}</option>
+                    {% endfor %}
+                </select>              
+            </span>
+        </p>   
+        <div id="form_request"></div>
     </form>
+    <div id="list_tirage" ></div>
+    <div id="table_rembourssement"></div>    
     <div id="action_block">
         <p class="stdformbutton">
-            <button class="stdbtn btn_yellow" id="update_form">Modifier</button>                        
+            <button class="stdbtn btn_yellow" id="generate_table">Générer</button>                        
             <button class="stdbtn" style="float: right;">Retour</button>
         </p>  
-    </div>
-      
+    </div>      
 </div><!--contentwrapper-->
 {% endblock %}
 {% block javascripts %}
@@ -41,7 +43,8 @@
 <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-ui-1.8.16.custom.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.cookie.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/general.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/demande.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.alerts.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/remboursement.js') }}"></script>
 
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/excanvas.min.js') }}"></script><![endif]-->
 <!--[if lt IE 9]>

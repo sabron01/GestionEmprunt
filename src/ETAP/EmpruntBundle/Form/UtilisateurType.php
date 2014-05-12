@@ -11,12 +11,13 @@ class UtilisateurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('login')
-            ->add('matricule')
-            ->add('motdepasse')
-            ->add('nom')
-            ->add('prenom')
-            ->add('idprofil')
+            ->add('matricule','hidden', array('attr' => array('class' => 'longinput')))
+            ->add('nom','text', array('attr' => array('class' => 'longinput')))
+            ->add('prenom','text', array('attr' => array('class' => 'longinput')))
+            ->add('idprofil', 'entity', array('empty_value'=>'Sélectionner un profil','class'=> 'EmpruntBundle:Profil','property' => 'libelle','required' => false
+            ))    
+            ->add('login','text', array('attr' => array('class' => 'longinput')))
+            ->add('motdepasse','password', array('attr' => array('class' => 'longinput')));
         ;
     }
 

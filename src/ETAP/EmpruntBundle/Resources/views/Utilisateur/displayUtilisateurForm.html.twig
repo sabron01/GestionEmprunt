@@ -1,6 +1,8 @@
 <p>
     <label>Nom Utilisateur</label>
     <span class="field">{{ form_widget(form.nom) }}</span>
+    {{ form_widget(form._token) }}
+    {{ form_widget(form.matricule) }}
 </p>        
 
 <p>

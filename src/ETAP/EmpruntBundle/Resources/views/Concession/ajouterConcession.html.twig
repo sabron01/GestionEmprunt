@@ -6,7 +6,7 @@
     <span class="pagedesc"></span>
 </div><!--pageheader-->
 <div id="contentwrapper" class="contentwrapper elements">
-{{ form_errors(form) }} 
+    {{ form_errors(form) }} 
     {% if (class_alert !="") %}
     <div class="notibar {{ class_alert }}">
         <a class="close"></a>
@@ -30,7 +30,6 @@
         <p>
             <label>Valeur de Réalisation</label>
             <span class="field">{{ form_widget(form.valeurrealisation) }}</span>
-            {{ form_widget(form.valeurrealisation) }}
         </p>        
 
         <p>
@@ -40,8 +39,9 @@
 
         <p>
             <label>Date Concession </label> 
-            <span class="field"><input type="date"  name="etap_empruntbundle_concessiontype[datecreation]" /></span>
-                {{ form_errors(form.datecreation) }}
+            <span class="field">
+                <input type="date"  name="etap_empruntbundle_concessiontype[datecreation]" />
+            </span>
         </p>
 
         <p class="stdformbutton">

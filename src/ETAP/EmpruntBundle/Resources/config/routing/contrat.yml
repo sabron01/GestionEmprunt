@@ -1,16 +1,60 @@
+ConsulterConvention:
+    pattern:  /ConsulterConvention
+    defaults: { _controller: "EmpruntBundle:Contrat:consulterConvention" }
+    
 ConsulterContrat:
-    pattern:  /
+    pattern:  /consulterContrat/{id}
     defaults: { _controller: "EmpruntBundle:Contrat:consulterContrat" }
 
 AjouterContrat:
     pattern:  /AjouterContrat
     defaults: { _controller: "EmpruntBundle:Contrat:ajouterContrat" }
+    
+AjouterTiragesContrat:
+    pattern:  /AjouterTiragesContrat/{id}
+    defaults: { _controller: "EmpruntBundle:Contrat:ajouterTiragesContrat" }    
+
+SaveAndAjouterTiragesContrat:
+    pattern:  /SaveAndAjouterTiragesContrat/{id}
+    defaults: { _controller: "EmpruntBundle:Contrat:saveAndAjouterTiragesContrat" }   
+#    requirements: { _method: post|put }   
+
+AjouterCommissionsContrat:
+    pattern:  /AjouterCommissionsContrat/{id}
+    defaults: { _controller: "EmpruntBundle:Contrat:ajouterCommissionsContrat" }    
 
 display_contrat:
     pattern:  /display/{id}
     defaults: { _controller: "EmpruntBundle:Contrat:displayContratForm" }
 
 ModifierContrat:
-    pattern:  /ModifierContrat/{id}
-    defaults: { _controller: "EmpruntBundle:Demande:modifierContrat" }
+    pattern:  /modifierContrat/{id}
+    defaults: { _controller: "EmpruntBundle:Contrat:modifierContrat" }
 
+SaveAndConsulterTiragesContrat:
+    pattern:  /SaveAndConsulterTiragesContrat/{id}
+    defaults: { _controller: "EmpruntBundle:Contrat:saveAndConsulterTiragesContrat" } 
+    
+ConsulterTiragesContrat:
+    pattern:  /consulterTiragesContrat/{id}
+    defaults: { _controller: "EmpruntBundle:Contrat:consulterTiragesContrat" }    
+    
+AjouterTiragesEditContrat:
+    pattern:  /AjouterTiragesEditContrat/{id}
+    defaults: { _controller: "EmpruntBundle:Contrat:ajouterTiragesEditContrat" }    
+
+SaveAndAjouterTiragesEditContrat:
+    pattern:  /SaveAndAjouterTiragesEditContrat/{id}
+    defaults: { _controller: "EmpruntBundle:Contrat:saveAndAjouterTiragesEditContrat" }   
+#    requirements: { _method: post|put }   
+ModifierTirage:
+    pattern:  /modifierTirage/{id}/contrat/{contrat_id}
+    defaults: { _controller: "EmpruntBundle:Contrat:modifierTirage" }
+    
+ConsulterCommissionsContrat:
+    pattern:  /consulterCommissionsContrat/{id}
+    defaults: { _controller: "EmpruntBundle:Contrat:consulterCommissionsContrat" }     
+
+ModifierCommissionsContrat:
+    pattern:  /modifierCommissionsContrat/{id}
+    defaults: { _controller: "EmpruntBundle:Contrat:modifierCommissionsContrat" }

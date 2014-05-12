@@ -2,53 +2,57 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- jQuery.noConflict();
+ $u.noConflict();
  */
 
-jQuery.noConflict();
+$u = jQuery.noConflict();
 
-jQuery(document).ready(function() {
+$u(document).ready(function() {
 
-    jQuery("#action_block").hide();
+    $u("#action_block").hide();
         
     // Consulter utilisateur 
-    jQuery("#utilisateur_id").change(function() {
+    $u("#utilisateur_id").change(function() {
+        
         var id = getSelectValue('utilisateur_id');
         var url_display = "/app_dev.php/Utilisateurs.html/display/"+id;
-        jQuery.ajax({
+        $u.ajax({
             url: url_display,
-            success: function(data) {
-                jQuery("#form_request").html(data);
-                jQuery("input").prop('disabled', true);
-                jQuery("select").prop('disabled', true);
-                jQuery("#utilisateur_id").prop('disabled', false);
-                jQuery("#action_block").show();
-
+            success: function(data) {             
+                $u("#form_user").html(data);
+                $u("input").prop('disabled', true);
+                $u("select").prop('disabled', true);                
+                $u("#utilisateur_id").prop('disabled', false);               
+                $u("#action_block").show();
+                $u("#save_edit").hide();
+                $u("#delete_form").hide();
+                $u("#user_form").attr('action','/app_dev.php/Utilisateurs.html/modifierUtilisateur/'+id);
+                $u("#delete_form").attr('href','/app_dev.php/Utilisateurs.html/supprimerUtilisateur/'+id);
             },
             error: function(data) {
-                            alert("Une erreur interne s'est produite, Veuillez réessayer plus tard.");
+                            jAlert("Une erreur interne s'est produite, Veuillez réessayer plus tard.","Attention !!!");
                         }                       
         });
     });
     
     //Modifier utilisateur 
     
-    jQuery("#update_form").click(function() {
-        jQuery("input").prop('disabled', false);
-        jQuery("select").prop('disabled', false);
-        jQuery("#utilisateur_id").prop('disabled', true);
-        jQuery("#update_form").prop('disabled', 'disabled');
-        jQuery("#action_block p").append('<button id="save_edit" class="stdbtn btn_blue">Enregistrer</button>');
+    $u("#update_form").click(function() {
+        $u("input").prop('disabled', false);
+        $u("select").prop('disabled', false);
+        $u("#utilisateur_id").prop('disabled', true);
+        $u("#save_edit").show();
+        $u("#delete_form").show();        
+        $u("#update_form").prop('disabled', 'disabled');
     });    
 
     //Enregistrer Modification
-
-    jQuery("#save_edit").click(function() {
-        alert("click");
+    $u("#save_edit").click(function() {
+        $u("#user_form").submit();
     });
     
         ///// Initialide Date widget /////
-    jQuery( "#etap_empruntbundle_utilisateurtype_dateutilisateur" ).datepicker();    
+    $u( "#etap_empruntbundle_utilisateurtype_dateutilisateur" ).datepicker();    
 });
 
 function getSelectValue(selectId)

@@ -1,0 +1,119 @@
+{% extends "EmpruntBundle::layout.html.twig" %}
+{% block title %} {{ parent() }} | Ajouter Contrat {% endblock %}
+{% block centercontent %}
+<div class="pageheader notab">
+    <h1 class="pagetitle">Convention de crédit</h1>
+    <span class="pagedesc"></span>
+</div><!--pageheader-->
+<div id="contentwrapper" class="contentwrapper">        
+    {{ form_errors(form_tirage) }} 
+    {% if (class_alert !="") %}
+    <div class="notibar {{ class_alert }}">
+        <a class="close"></a>
+        <p>{{ notify }}</p>
+    </div>
+    {% endif %}
+    <div id="vertical" class="subcontent">
+        <!-- START OF VERTICAL WIZARD -->
+        <form class="stdform" id="form_convention" method="post" action="{{ path('AjouterTiragesEditContrat',{'id': entity_contrat.id}) }}" novalidate=true>
+
+            <div id="wizard3" class="wizard verwizard">
+
+                <ul class="verticalmenu anchor">
+                    <li>
+                        <a href="{{ path('ConsulterContrat',{'id': entity_contrat.id})  }}" class="disabled" isdone="1" rel="1">
+                            <span class="label">Etape 1: Contrat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('ConsulterTiragesContrat',{'id': entity_contrat.id}) }}" class="selected" isdone="0" rel="2">
+                            <span class="label">Etape 2: Tirage</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('ConsulterCommissionsContrat',{'id': entity_contrat.id}) }}" class="disabled" isdone="0" rel="3">
+                            <span class="label">Etape 3: Commission</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!--#wiz1step3_1-->
+
+                <!--#wiz1step3_2-->
+
+                <!--#wiz1step3_3-->
+
+                <div class="stepContainer" style="height: 631px;">
+                    <div id="wiz1step3_2" class="formwiz content" style="display: block;">
+                        <h4>Etape 2: Tirage</h4> 
+{#                        <input type="hidden" value="0" id="etap_empruntbundle_contrattype_nbrtirage" name="etap_empruntbundle_contrattype[nbrtirage]" class="longinput"></input>                                #}
+                        {{ form_widget(form_tirage._token) }}
+{#                        {{ form_widget(form_tirage.idcontrat) }}#}
+                        <div id="tirage_1">
+                            <div style="margin-left: 15px" class="contenttitle2">
+                                <h3>Tirage </h3>                                      
+                            </div>    
+                            <p>
+                                <label>Réference Tirage</label>
+                                <span class="field">{{ form_widget(form_tirage.reftirage) }}</span>
+                            </p>
+
+                            <p>
+                                <label>Montant </label>
+                                <span class="field">{{ form_widget(form_tirage.montant) }}</span>
+                            </p>
+
+                            <p>
+                                <label>Date de valeur du Tirage </label>
+                                <span class="field">
+                                    {{ form_widget(form_tirage.datevaleur) }}
+{#                                    <input type="date"  id="etap_empruntbundle_tiragetype_datevaleur" name="etap_empruntbundle_tiragetype[datevaleur]" required="required">#}
+                                </span>
+                            </p>                                  
+                        </div>
+{#                    <ul class="form-tirages" data-prototype="{% filter escape %}{% include 'EmpruntBundle:Form:fields.html.twig' with {'form': form_contrat.tirages.get('prototype')} %}{% endfilter %}"></ul>#}
+{#                        <p id="btn_new_block_tirage">
+                            <label></label>
+                            <span class="field">
+                                <span id="add_tirage" class="stdbtn btn_orange" style="color:white">Ajouter un tirage</span>
+                            </span>
+                        </p>  #} 
+
+                    </div>
+                </div>
+                <div class="actionBar">
+                    <div class="loader">Loading</div>
+{#                    <a href="#" class="buttonFinish buttonDisabled">Finish</a>#}                    
+                    <input type="submit" style="float: right"  class="buttonNext" value="Etape Suivante" />
+                    <span id="link_add_save_edit" style="display: none">{{ path('SaveAndAjouterTiragesEditContrat',{'id': entity_contrat.id}) }}</span>
+                    <a href="#" id="save_add_tirage" style="float: left" class="buttonNext"/>Enregistrer et Ajouter un tirage</a>                   
+{#                    <a href="#" class="buttonPrevious buttonDisabled">Previous</a>#}
+                </div>
+            </div><!--#wizard-->
+        </form>
+
+        <br clear="all"><br>
+
+        <!-- END OF VERTICAL WIZARD -->
+
+    </div>
+    <!--#vertical-->  
+    <div class="loaders" style="display: none">
+        <img src="{{ asset('bundles/emprunt/images/loaders/loader6.gif') }}" alt="Chargement">
+    </div>    
+</div><!--contentwrapper-->
+{% endblock %}
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-1.7.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-ui-1.8.16.custom.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.cookie.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/colorpicker.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.uniform.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.colorbox-min.js') }}"></script>   
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.jgrowl.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.alerts.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/contrat.js') }}"></script>
+<!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+{% endblock %} 

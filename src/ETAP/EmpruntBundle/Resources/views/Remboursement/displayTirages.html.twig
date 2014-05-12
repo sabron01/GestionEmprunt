@@ -1,0 +1,37 @@
+<div class="contenttitle2">
+    <h3>Sélectionner un Tirage</h3>
+</div><!--contenttitle-->
+<form class="stdform stdform2" method="post" action="#">
+    <p>
+        <label>Réference tirage</label>
+        <span class="field">            
+            <select name="selection" id="tirage_id">
+                <option value="0">Sélectionner un tirage</option>
+                {% for entity in entities_tirages %}
+                <option value="{{ entity.id }}">{{ entity.reftirage }}</option>
+                {% endfor %}
+            </select>              
+        </span>
+    </p>   
+    <div id="form_request"></div>
+</form>
+<script type="text/javascript">
+    jQuery.noConflict();
+
+    jQuery(document).ready(function() {
+        jQuery("#tirage_id").change(function() {
+            var id = 1;
+            var url_display = "/app_dev.php/Remboursements.html/afficherTableRemboursement/" + id;
+            jQuery.ajax({
+                url: url_display,
+                success: function(data) {
+                    jQuery("#table_rembourssement").html(data);
+                    jQuery("#action_block").show();
+                },
+                error: function(data) {
+                    alert("Une erreur interne s'est produite, Veuillez réessayer plus tard.");
+                }
+            });
+        });
+    });
+</script>

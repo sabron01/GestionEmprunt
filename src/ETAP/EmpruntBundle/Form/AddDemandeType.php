@@ -11,7 +11,9 @@ class AddDemandeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('datedemande','text', array('attr' => array('class' => 'width100 hasDatepicker')))   
+            ->add('datedemande','text', array('attr' => array('class' => 'width100 hasDatepicker')))
+//            ->add('datedemande','text', array('attr' => array('class' => 'width100 hasDatepicker')))   
+//            ->add('datedemande','date')   
             ->add('dureecredit','text', array('attr' => array('class' => 'longinput')))
             ->add('monnaiecredit','text', array('attr' => array('class' => 'longinput')))
             ->add('montantcredit','number', array('attr' => array('class' => 'longinput')))

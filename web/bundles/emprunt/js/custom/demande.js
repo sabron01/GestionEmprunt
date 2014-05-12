@@ -2,28 +2,30 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- jQuery.noConflict();
+ $d.noConflict();
  */
 
-jQuery.noConflict();
+$d = jQuery.noConflict();
 
-jQuery(document).ready(function() {
-
-    jQuery("#action_block").hide();
+$d(document).ready(function() {
+    
+//    $d("select").css("min-width","0%");
+    $d("#action_block").hide();
         
     // Consulter demande 
-    jQuery("#demande_id").change(function() {
+    $d("#demande_id").change(function() {
         var id = getSelectValue('demande_id');
         var url_display = "/app_dev.php/OpportunitesFinancement.html/demande/display/"+id;
-        jQuery.ajax({
+        $d.ajax({
             url: url_display,
             success: function(data) {
-                jQuery("#form_request").html(data);
-                jQuery("input").prop('disabled', true);
-                jQuery("select").prop('disabled', true);
-                jQuery("#demande_id").prop('disabled', false);
-                jQuery("#action_block").show();
-
+                $d("#form_request").html(data);
+                $d("input").prop('disabled', true);
+                $d("select").prop('disabled', true);
+                $d("#demande_id").prop('disabled', false);
+                $d("#action_block").show();
+                $d("#save_edit").hide();
+                $d("#demande_form").attr('action','/app_dev.php/OpportunitesFinancement.html/demande/ModifierDemande/'+id);
             },
             error: function(data) {
                             alert("Une erreur interne s'est produite, Veuillez réessayer plus tard.");
@@ -31,24 +33,24 @@ jQuery(document).ready(function() {
         });
     });
     
-    //Modifier demande 
-    
-    jQuery("#update_form").click(function() {
-        jQuery("input").prop('disabled', false);
-        jQuery("select").prop('disabled', false);
-        jQuery("#demande_id").prop('disabled', true);
-        jQuery("#update_form").prop('disabled', 'disabled');
-        jQuery("#action_block p").append('<button id="save_edit" class="stdbtn btn_blue">Enregistrer</button>');
+    //Modifier demande     
+    $d("#update_form").click(function() {
+        $d("input").prop('disabled', false);
+        $d("select").prop('disabled', false);
+        $d("#demande_id").prop('disabled', true);
+        $d("#update_form").prop('disabled', 'disabled');
+        $d("#update_form").prop('disabled', false);
+        $d("#save_edit").show();
+        $d( "#etap_empruntbundle_demandetype_datedemande" ).datepicker();            
     });    
 
     //Enregistrer Modification
-
-    jQuery("#save_edit").click(function() {
-        alert("click");
+    $d("#save_edit").click(function() {
+        $d("#demande_form").submit();
     });
     
         ///// Initialide Date widget /////
-    jQuery( "#etap_empruntbundle_demandetype_datedemande" ).datepicker();    
+//    $d( "#etap_empruntbundle_demandetype_datedemande" ).datepicker();    
 });
 
 function getSelectValue(selectId)

@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use ETAP\EmpruntBundle\Entity\Tirage;
+use ETAP\EmpruntBundle\Form\AddTirageType;
 use ETAP\EmpruntBundle\Form\TirageType;
 
 /**
@@ -15,13 +16,13 @@ use ETAP\EmpruntBundle\Form\TirageType;
 class TirageController extends Controller
 {
     
-    public function displayTirageFormAction($id) {
+    public function displayTirageFormAction(Request $request,$id) {
         $em = $this->getDoctrine()->getManager();
-        $entity_contrat = new Contrat();
-        $form_contrat = $this->createForm(new ContratType(), $entity_contrat);
-        return $this->render('EmpruntBundle:Tirage:displayContratForm.html.twig', array(
-            'entity_tirage' => $entity_contrat,
-            'form_contrat' => $form_contrat->createView(), 
+        $entity_tirage = new Tirage();
+        $form_tirage = $this->createForm(new AddTirageType($id), $entity_tirage);
+        return $this->render('EmpruntBundle:Tirage:displayTirageForm.html.twig', array(
+            'entity_tirage' => $entity_tirage,
+            'form_tirage' => $form_tirage->createView(), 
             'id'=>$id,
         ));
     }

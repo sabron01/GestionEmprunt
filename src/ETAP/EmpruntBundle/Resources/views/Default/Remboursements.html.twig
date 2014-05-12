@@ -2,10 +2,13 @@
 {% block title %} {{ parent() }} | Accueil {% endblock %}
 {% block centercontent %}
 <div class="pageheader">
-    <h1 class="pagetitle">Remboursements</h1>
-    <span class="pagedesc">This is a sample description of a page</span>
+{#    <h1 class="pagetitle">Tableau de bord</h1>
+    <span class="pagedesc">This is a sample description of a page</span>#}
 </div><!--pageheader-->
 <div id="contentwrapper" class="contentwrapper">
-
-</div>
+    <center>
+        <img src="{{ asset('bundles/emprunt/upload/gallery/5.jpg') }}" />
+    </center>
+    
+</div><!--contentwrapper-->
 {% endblock %}

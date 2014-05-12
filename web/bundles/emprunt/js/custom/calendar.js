@@ -33,6 +33,40 @@ jQuery(document).ready(function() {
 	
 		/* initialize the calendar */
 		jQuery('#calendar').fullCalendar({
+                        events: [
+                            {
+                                title: 'Fête des Martyrs',
+                                start: '2014-04-09',
+//                                description: 'test'
+                            },
+                            {
+                                title: 'Fête de l’Indépendance',
+                                start: '2014-03-20',
+//                                description: 'test'
+                            },
+                            {
+                                title: 'Fête du Travail',
+                                start: '2014-05-01',
+//                                description: 'test'
+                            },
+                            {
+                                title: 'Jour de la Saint-Valentin',
+                                start: '2014-02-14',
+//                                description: 'test'
+                            },
+                            {
+                                title: 'Fête des Mères',
+                                start: '2014-05-25',
+//                                description: 'test'
+                            },{
+                                title: 'Vendredi saint',
+                                start: '2014-05-14',
+//                                description: 'test'
+                            },                            
+                            
+                            
+                            // more events here
+                        ],               
 			header: {
 				left: '',
 				center: 'title',
@@ -54,6 +88,11 @@ jQuery(document).ready(function() {
                         dayNamesShort:["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"],
 			editable: true,
 			droppable: true, // this allows things to be dropped onto the calendar !!!
+//                        eventRender: function(event, element) {
+//                            element.qtip({
+////                                content: event.description
+//                            });
+//                        },                          
 			drop: function(date, allDay) { // this function is called when something is dropped
 			
 				// retrieve the dropped element's stored Event Object
@@ -75,6 +114,7 @@ jQuery(document).ready(function() {
 				jQuery(this).remove();
 				
 			}
+                        
 		});
 		
 		

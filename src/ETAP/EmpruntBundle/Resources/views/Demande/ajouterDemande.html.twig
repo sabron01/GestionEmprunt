@@ -32,8 +32,8 @@
              <label>Date Demande </label> 
              <span class="field">
 {#                 {{ form_widget(form.datedemande) }}#}
-                 <input type="text" id="etap_empruntbundle_demandetype_datedemande" name="etap_empruntbundle_demandetype[datedemande]" required="required" class="width100 hasDatepicker">                    
-{#                 <input type="date"  name="etap_empruntbundle_demandetype[datedemande]" />#}
+{#                 <input type="text" id="etap_empruntbundle_demandetype_datedemande" name="etap_empruntbundle_demandetype[datedemande]" required="required" class="width100 hasDatepicker">                    #}
+                 <input type="date"  name="etap_empruntbundle_demandetype[datedemande]" />
              </span>
                 {{ form_errors(form.datedemande) }}
         </p>
@@ -77,10 +77,7 @@
     <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-1.7.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-ui-1.8.16.custom.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.cookie.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/colorpicker.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.jgrowl.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.alerts.js') }}"></script>    
-    
+    <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/colorpicker.js') }}"></script>    
     <script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/demande.js') }}"></script>
     <!--[if lt IE 9]>
             <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>

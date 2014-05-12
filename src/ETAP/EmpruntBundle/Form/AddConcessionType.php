@@ -12,7 +12,7 @@ class AddConcessionType extends AbstractType
     {
         $builder
             ->add('datecreation','text' , array('attr' => array('class' => array('class' => 'width100 hasDatepicker'))))
-            ->add('description','text', array('attr' => array('class' => array('class' => 'width100 hasDatepicker'))))
+            ->add('description','text')
             ->add('nomconcession','text', array('attr' => array('class' => 'longinput')))
             ->add('valeurrealisation','number', array('attr' => array('class' => 'longinput')))
         ;

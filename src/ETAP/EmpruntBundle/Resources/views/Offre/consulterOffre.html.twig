@@ -6,15 +6,19 @@
     <span class="pagedesc"></span>
 </div><!--pageheader-->
 <div id="contentwrapper" class="contentwrapper">
-
+    {% if (class_alert !="") %}
+    <div class="notibar {{ class_alert }}">
+        <a class="close"></a>
+        <p>{{ notify }}</p>
+    </div>
+    {% endif %}
     <div class="contenttitle2">
         <h3>Sélectionner une offre</h3>
     </div><!--contenttitle-->
-    <form class="stdform stdform2" method="post" action="#">
+    <form id="offre_form" class="stdform stdform2" method="post" action="#">
     <p>
         <label>Code offre</label>
-        <span class="field">
-            
+        <span class="field">            
             <select onchange="" name="selection" id="offre_id">
                 <option value="">Sélectionner une offre</option>
                                 {% for entity in entities %}
@@ -24,16 +28,14 @@
         </span>
     </p>
     <div id="form_offre"></div>
-
     </form>
     <div id="action_block">
         <p class="stdformbutton">
             <button class="stdbtn btn_yellow" id="update_form">Modifier</button>            
-            <button class="stdbtn btn_red">Supprimer</button>
+            <button class="stdbtn btn_blue" id="save_edit">Enregistrer</button>
             <button class="stdbtn" style="float: right;">Retour</button>
         </p>  
-    </div>
-      
+    </div>      
 </div><!--contentwrapper-->
 {% endblock %}
 {% block javascripts %}

@@ -48,15 +48,10 @@ class BesoinController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
                 $em->flush();
-                return $this->render('EmpruntBundle:Besoin:ajouterBesoin.html.twig', array(
-                            'entity' => new Besoin(),
-                            'current' => $this->current,
-                            'section' => $this->section,
-                            'choice' => $this->choice,                
-                            'class_alert' => 'msgsuccess',
-                            'notify' => 'Le besoin a été ajoutée avec succès',
-                            'form' => $this->createForm(new AddBesoinType(), $entity)->createView(),
-                ));
+                $this->class_alert = 'msgsuccess';
+                $this->notify = "Le besoin a été ajouté avec succès"; 
+                $entity = new Besoin();
+                $form = $this->createForm(new AddBesoinType(), $entity);                
             }else{
                     $this->class_alert = 'msgerror';
                     $this->notify = "Veuillez vérifier les champs :/"; 

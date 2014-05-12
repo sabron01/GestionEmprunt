@@ -11,7 +11,7 @@ class OffreType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codeoffre','text', array('attr' => array('class' => 'longinput')))
+            ->add('codeoffre','hidden', array('attr' => array('class' => 'longinput')))
             ->add('dateoffre','text', array('attr' => array('class' => 'width100 hasDatepicker'))) 
             ->add('marge','text', array('attr' => array('class' => 'longinput')))
             ->add('monnaieremboursement','text', array('attr' => array('class' => 'longinput')))

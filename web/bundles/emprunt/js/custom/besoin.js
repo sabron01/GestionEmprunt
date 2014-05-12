@@ -25,7 +25,7 @@ jQuery(document).ready(function() {
                 jQuery("#form_besoin").html(data);
                 jQuery("input").prop('disabled', true);
                 jQuery("select").prop('disabled', true);
-                jQuery("#demande_id").prop('disabled', false);
+                jQuery("#besoin_id").prop('disabled', false);
                 jQuery("#action_block").show();
 
             },

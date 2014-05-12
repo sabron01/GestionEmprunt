@@ -12,7 +12,10 @@
     </p>
     <p>
         <label>Date de valeur du Tirage </label>
-        <span class="field">{{ form_widget(form_tirage.datevaleur) }}</span>
+        <span class="field">
+{#            {{ form_widget(form_tirage.datevaleur) }}#}
+            <input type="date"  id="etap_empruntbundle_tiragetype_{{ id }}_datevaleur" name="etap_empruntbundle_tiragetype_{{ id }}[datevaleur]" required="required">
+        </span>
     </p>    
     <p>
         <label></label>

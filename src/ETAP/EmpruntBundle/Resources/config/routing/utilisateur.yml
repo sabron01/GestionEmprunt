@@ -11,5 +11,9 @@ display_utilisateur:
     defaults: { _controller: "EmpruntBundle:Utilisateur:displayUtilisateurForm" }
 
 ModifierUtilisateur:
-    pattern:  /{id}/ModifierUtilisateur
+    pattern:  /modifierUtilisateur/{id}
     defaults: { _controller: "EmpruntBundle:Utilisateur:modifierUtilisateur" }
+    
+SupprimerUtilisateur:
+    pattern:  supprimerUtilisateur/{id}
+    defaults: { _controller: "EmpruntBundle:Utilisateur:supprimerUtilisateur" }    

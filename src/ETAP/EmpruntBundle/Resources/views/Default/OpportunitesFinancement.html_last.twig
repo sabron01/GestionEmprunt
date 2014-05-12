@@ -1,0 +1,119 @@
+{% extends "EmpruntBundle::layout.html.twig" %}
+{% block title %} {{ parent() }} | Accueil {% endblock %}
+{% block centercontent %}
+<div class="pageheader">
+    <h1 class="pagetitle">Opportunités de financement</h1>
+    <span class="pagedesc">Si vous semble inutile de mettre du texte ici , on peut l'effacer , à vous de juger :p</span>
+</div><!--pageheader-->
+<div id="contentwrapper" class="contentwrapper">
+    <div class="one_third last dashboard_left">
+
+        <div class="contenttitle2 nomargintop">
+            <h3>Demande</h3>
+        </div><!--contenttitle-->
+
+
+        <ul class="toplist">
+            <li>
+                <div>
+                    <span class="three_fourth">
+                        <span class="left">
+                            <span class="title"><a href="">Nouvelle Demande</a></span>
+                            <span class="desc"></span>
+                        </span><!--left-->
+                    </span><!--three_fourth-->
+                    <span class="one_fourth last">
+                        <span class="right">
+                            <span style="color: #FB9337" class="h3"><a style="color: #FB9337" href="{{ path('AjouterDemande') }}">+</a></span>
+                        </span><!--right-->
+                    </span><!--one_fourth-->
+                    <br clear="all" />
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span class="three_fourth">
+                        <span class="left">
+                            <span class="title"><a href="">Consulter Demande</a></span>
+                        </span><!--left-->
+                    </span><!--three_fourth-->
+                    <span class="one_fourth last">
+                        <span class="right">
+                            <span class="h3"><a style="color: #FB9337" href="{{ path('ConsulterDemande') }}">>></a></span>
+                        </span><!--right-->
+                    </span><!--one_fourth-->
+                    <br clear="all" />
+                </div>
+            </li>            
+        </ul>
+    </div>    
+    
+    <div class="one_third last dashboard_left">
+        <div class="contenttitle2 nomargintop">
+            <h3>Offre</h3>
+        </div><!--contenttitle-->
+
+
+        <ul class="toplist">
+            <li>
+                <div>
+                    <span class="three_fourth">
+                        <span class="left">
+                            <span class="title"><a href="">Nouvelle Offre</a></span>
+                            <span class="desc"></span>
+                        </span><!--left-->
+                    </span><!--three_fourth-->
+                    <span class="one_fourth last">
+                        <span class="right">
+                            <span style="color: #FB9337" class="h3"><a style="color: #FB9337" href="{{ path('AjouterOffre') }}">+</a></span>
+                        </span><!--right-->
+                    </span><!--one_fourth-->
+                    <br clear="all" />
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span class="three_fourth">
+                        <span class="left">
+                            <span class="title"><a href="">Consulter Offre</a></span>
+                        </span><!--left-->
+                    </span><!--three_fourth-->
+                    <span class="one_fourth last">
+                        <span class="right">
+                            <span class="h3"><a style="color: #FB9337" href="{{ path('ConsulterOffre') }}">>></a></span>
+                        </span><!--right-->
+                    </span><!--one_fourth-->
+                    <br clear="all" />
+                </div>
+            </li>            
+        </ul>
+    </div>    
+    
+    <div class="one_third last dashboard_right">
+        <div class="contenttitle2 nomargintop">
+            <h3>Depouillement</h3>
+        </div><!--contenttitle-->
+
+
+        <ul class="toplist">
+            <li>
+                <div>
+                    <span class="three_fourth">
+                        <span class="left">
+                            <span class="title"><a href="">Lancer le depouillement</a></span>
+                            <span class="desc"></span>
+                        </span><!--left-->
+                    </span><!--three_fourth-->
+                    <span class="one_fourth last">
+                        <span class="right">
+                            <span style="color: #FB9337" class="h3"><a style="color: #FB9337" href="{{ path('Depouillement') }}">+</a></span>
+                        </span><!--right-->
+                    </span><!--one_fourth-->
+                    <br clear="all" />
+                </div>
+            </li>       
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

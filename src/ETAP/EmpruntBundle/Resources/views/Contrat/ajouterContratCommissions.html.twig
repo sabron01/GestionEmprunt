@@ -1,0 +1,93 @@
+{% extends "EmpruntBundle::layout.html.twig" %}
+{% block title %} {{ parent() }} | Ajouter Contrat {% endblock %}
+{% block centercontent %}
+<div class="pageheader notab">
+    <h1 class="pagetitle">Convention de crédit</h1>
+    <span class="pagedesc"></span>
+</div><!--pageheader-->
+<div id="contentwrapper" class="contentwrapper">        
+
+    <div id="vertical" class="subcontent">
+        <!-- START OF VERTICAL WIZARD -->
+        <form class="stdform" id="form_convention" method="post" action="{{ path('AjouterCommissionsContrat',{'id': entity_contrat.id}) }}" novalidate=true>
+
+            <div id="wizard3" class="wizard verwizard">
+
+                <ul class="verticalmenu anchor">
+                    <li>
+                        <a href="{{ path('AjouterContrat') }}" class="disabled" isdone="1" rel="1">
+                            <span class="label">Etape 1: Contrat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('AjouterTiragesContrat',{'id': entity_contrat.id}) }}" class="disabled" isdone="0" rel="2">
+                            <span class="label">Etape 2: Tirage</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="selected" isdone="0" rel="3">
+                            <span class="label">Etape 3: Commission</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!--#wiz1step3_1-->
+
+                <!--#wiz1step3_2-->
+
+                <!--#wiz1step3_3-->
+
+                <div class="stepContainer" style="height: 631px;">
+                    <div id="wiz1step3_3" class="content" style="display: block;">
+                        <h4>Etape 3: Commission</h4>
+                        <p>
+                            <label>Type Commission :</label>
+                            <span class="formwrapper">
+                                <input type="checkbox" value="Commission d'agent" name="etap_empruntbundle_commissiontype[0][type]" /> 
+                                Commission d'agent &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Valeur : &nbsp; <input type="text" id="etap_empruntbundle_commissiontype_0_valeur" name="etap_empruntbundle_commissiontype[0][valeur]" required="required" class="smallinput width50" style="height: 10px;" > <br />
+                                
+                                <input type="checkbox" value="Commission de gestion" name="etap_empruntbundle_commissiontype[1][type]"/> 
+                                Commission de gestion &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                Valeur : &nbsp; <input type="text" id="etap_empruntbundle_commissiontype_1_valeur" name="etap_empruntbundle_commissiontype[1][valeur]" required="required" class="smallinput width50" style="height: 10px;">  <br />
+                                
+                                <input type="checkbox" value="Commission d'engagement" name="etap_empruntbundle_commissiontype[2][type]"/> 
+                                Commission d'engagement &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Valeur : &nbsp; <input type="text" id="etap_empruntbundle_commissiontype_2_valeur" name="etap_empruntbundle_commissiontype[2][valeur]" required="required" class="smallinput width50" style="height: 10px;">  <br /> 
+                            </span>
+                        </p>                                    
+                    </div>
+
+                </div>
+                <div class="actionBar">
+                    <div class="loader">Loading</div>
+{#                    <a href="#" class="buttonFinish buttonDisabled">Finish</a>#}
+                    <input type="submit" style="float: right"  class="buttonNext" value="Terminer" />
+{#                    <a href="#" class="buttonPrevious buttonDisabled">Previous</a>#}
+                </div>
+            </div><!--#wizard-->
+        </form>
+
+        <br clear="all"><br>
+
+        <!-- END OF VERTICAL WIZARD -->
+
+    </div>
+    <!--#vertical-->  
+    <div class="loaders" style="display: none">
+        <img src="{{ asset('bundles/emprunt/images/loaders/loader6.gif') }}" alt="Chargement">
+    </div>    
+</div><!--contentwrapper-->
+{% endblock %}
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-1.7.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-ui-1.8.16.custom.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.cookie.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.uniform.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.colorbox-min.js') }}"></script>    
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.alerts.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/contrat.js') }}"></script>
+<!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+{% endblock %} 

@@ -358,7 +358,4 @@ jQuery(document).ready(function() {
         }
     }
 
-    ///// DATE PICKER /////
-    //jQuery("#datepicker").datepicker();
-
 });

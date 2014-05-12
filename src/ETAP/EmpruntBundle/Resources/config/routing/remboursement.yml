@@ -12,4 +12,16 @@ repartitionParConcession:
       
 consulterRemboursementParConcession:
     pattern:  /Consulter-Remboursement-Par-Concession.html
-    defaults: { _controller: "EmpruntBundle:Remboursement:consulterRemboursementParConcession" }    
+    defaults: { _controller: "EmpruntBundle:Remboursement:consulterRemboursementParConcession" } 
+    
+afficherTableRemboursement:
+    pattern:  /afficherTableRemboursement/{id}
+    defaults: { _controller: "EmpruntBundle:Remboursement:afficherTableRemboursement" }    
+    
+displayTiragesList:
+    pattern:  /displayTiragesList/{id}
+    defaults: { _controller: "EmpruntBundle:Remboursement:displayTiragesList" }     
+    
+displayTirages:
+    pattern:  /displayTirages/{id}
+    defaults: { _controller: "EmpruntBundle:Remboursement:displayTirages" }        

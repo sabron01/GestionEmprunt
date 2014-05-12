@@ -11,8 +11,9 @@ display_request:
     defaults: { _controller: "EmpruntBundle:Demande:displayRequestForm" }
 
 ModifierDemande:
-    pattern:  /{id}/ModifierDemande
+    pattern:  /ModifierDemande/{id}
     defaults: { _controller: "EmpruntBundle:Demande:modifierDemande" }
+#    requirements: { _method: post|put }
 
 demande_edit:
     pattern:  /{id}/edit

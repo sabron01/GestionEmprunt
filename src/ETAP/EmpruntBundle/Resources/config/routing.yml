@@ -38,7 +38,14 @@ Utilisateurs:
     pattern:  /Utilisateurs.html
     defaults: { _controller: EmpruntBundle:Default:utilisateurs }
 
+Depouillement:    
+    pattern:  /OpportunitesFinancement.html/depouillement.html
+    defaults: { _controller: EmpruntBundle:Offre:depouillement }  
     
+display_offer_list:
+    pattern:  /OpportunitesFinancement.html/depouillement/display/{id}
+    defaults: { _controller: "EmpruntBundle:Offre:displayOfferList" }       
+        
 test:
     pattern:  /test.html
     defaults: { _controller: EmpruntBundle:Default:test }

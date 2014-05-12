@@ -6,34 +6,40 @@
     <span class="pagedesc"></span>
 </div><!--pageheader-->
 <div id="contentwrapper" class="contentwrapper">
-
+    {% if (class_alert !="") %}
+    <div class="notibar {{ class_alert }}">
+        <a class="close"></a>
+        <p>{{ notify }}</p>
+    </div>
+    {% endif %}
     <div class="contenttitle2">
         <h3>Sélectionner une utilisateur</h3>
     </div><!--contenttitle-->
-    <form class="stdform stdform2" method="post" action="#">
-    <p>
-        <label>Réference utilisateur</label>
-        <span class="field">
-            
-            <select onchange="" name="selection" id="utilisateur_id">
-                <option value="">Sélectionner une utilisateur</option>
+    <form id="user_form" class="stdform stdform2" method="post" action="#">
+        <p>
+            <label>Réference utilisateur</label>
+            <span class="field">
+
+                <select onchange="" name="selection" id="utilisateur_id">
+                    <option value="">Sélectionner une utilisateur</option>
                                 {% for entity in entities %}
-                <option value="{{ entity.id }}">{{ entity.matricule }}</option>
+                    <option value="{{ entity.id }}">{{ entity.matricule }}</option>
                                 {% endfor %}
-            </select>              
-        </span>
-    </p>
-    <div id="form_request"></div>
+                </select>              
+            </span>
+        </p>
+        <div id="form_user"></div>
 
     </form>
     <div id="action_block">
         <p class="stdformbutton">
-            <button class="stdbtn btn_yellow" id="update_form">Modifier</button>      
-            <button class="stdbtn btn_red">Supprimer</button>
+            <button class="stdbtn btn_yellow" id="update_form">Modifier</button>  
+            <button class="stdbtn btn_blue" id="save_edit">Enregistrer</button>
+            <a href="#" class="stdbtn btn_red"  id="delete_form">Supprimer</a>
             <button class="stdbtn" style="float: right;">Retour</button>
         </p>  
     </div>
-      
+
 </div><!--contentwrapper-->
 {% endblock %}
 {% block javascripts %}
@@ -42,6 +48,7 @@
 <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery-ui-1.8.16.custom.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.cookie.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/general.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/jquery.alerts.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/emprunt/js/custom/utilisateur.js') }}"></script>
 
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="{{ asset('bundles/emprunt/js/plugins/excanvas.min.js') }}"></script><![endif]-->

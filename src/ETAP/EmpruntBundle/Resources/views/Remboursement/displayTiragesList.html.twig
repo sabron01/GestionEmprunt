@@ -1,0 +1,17 @@
+<div class="contenttitle2">
+    <h3>Sélectionner un Tirage</h3>
+</div><!--contenttitle-->
+<form class="stdform stdform2" method="post" action="#">
+    <p>
+        <label>Réference tirage</label>
+        <span class="field">            
+            <select name="selection" id="tirage_id">
+                <option value="0">Sélectionner un tirage</option>
+                {% for entity in entities_tirages %}
+                    <option value="{{ entity.id }}">{{ entity.reftirage }}</option>
+                {% endfor %}
+            </select>              
+        </span>
+    </p>   
+    <div id="form_request"></div>
+</form>

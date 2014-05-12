@@ -34,7 +34,9 @@ class DemandeController extends Controller {
                     'entities' => $entities,
                     'current' => $this->current,
                     'section' => $this->section,
-                    'choice' => $this->choice
+                    'choice' => $this->choice,
+                    'class_alert' => $this->class_alert,
+                    'notify' => $this->notify,                
         ));
     }
 
@@ -48,21 +50,24 @@ class DemandeController extends Controller {
         $form = $this->createForm(new AddDemandeType(), $entity);
         
         if( $request->isMethod("POST")){
-            var_dump($request->get("etap_empruntbundle_demandetype"));
             $form->bind($request);// Lier les données de la requête au formulaire .     
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
                 $em->flush();
-                return $this->render('EmpruntBundle:Demande:ajouterDemande.html.twig', array(
-                            'entity' => new Demande(),
-                            'current' => $this->current,
-                            'section' => $this->section,
-                            'choice' => $this->choice,                
-                            'class_alert' => 'msgsuccess',
-                            'notify' => 'La demande a été ajoutée avec succès',
-                            'form' => $this->createForm(new AddDemandeType(), $entity)->createView(),
-                ));
+                $this->class_alert = 'msgsuccess';
+                $this->notify = "La demande a été ajoutée avec succès";      
+                $entity = new Demande();
+                $form = $this->createForm(new AddDemandeType(), $entity);
+//                return $this->render('EmpruntBundle:Demande:ajouterDemande.html.twig', array(
+//                            'entity' => new Demande(),
+//                            'current' => $this->current,
+//                            'section' => $this->section,
+//                            'choice' => $this->choice,                
+//                            'class_alert' => 'msgsuccess',
+//                            'notify' => 'La demande a été ajoutée avec succès',
+//                            'form' => $this->createForm(new AddDemandeType(), new Demande())->createView(),
+//                ));
             }else{
                     $this->class_alert = 'msgerror';
                     $this->notify = "Veuillez vérifier les champs :/"; 
@@ -82,52 +87,48 @@ class DemandeController extends Controller {
     }
     
     public function displayRequestFormAction($id) {
-        $current = 1;
-        $section = 1;
-
         $em = $this->getDoctrine()->getManager();
-
         $entity = $em->getRepository('EmpruntBundle:Demande')->find($id);
-
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Demande entity.');
         }
-
         $form = $this->createForm(new DemandeType(), $entity);
-
         return $this->render('EmpruntBundle:Demande:displayRequestForm.html.twig', array(
                     'entity' => $entity,
                     'form' => $form->createView(),
-                    'current' => $current,
-                    'section' => $section
+                    'current' => $this->current,
+                    'section' => $this->section  
         ));
     }
 
     public function modifierDemandeAction(Request $request, $id) {
         $em = $this->getDoctrine()->getManager();
-
+        $entities = $em->getRepository('EmpruntBundle:Demande')->findAll();
         $entity = $em->getRepository('EmpruntBundle:Demande')->find($id);
-
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Demande entity.');
         }
-
-        $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new DemandeType(), $entity);
-        $editForm->bind($request);
-
-        if ($editForm->isValid()) {
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('demande_edit', array('id' => $id)));
+        $editForm = $this->createForm(new AddDemandeType(), $entity);
+        if( $request->isMethod("POST")){
+            $editForm->bind($request);
+            if ($editForm->isValid()) {
+                $em->persist($entity);
+                $em->flush();
+                $this->class_alert = 'msgsuccess';
+                $this->notify = "La demande a été modifiée avec succès";                          
+            }else{
+                $this->class_alert = 'msgerror';
+                $this->notify = "Veuillez vérifier les champs :/"; 
+            }             
         }
-
-        return $this->render('EmpruntBundle:Demande:edit.html.twig', array(
-                    'entity' => $entity,
-                    'edit_form' => $editForm->createView(),
-                    'delete_form' => $deleteForm->createView(),
-        ));
+        return $this->render('EmpruntBundle:Demande:consulterDemande.html.twig', array(
+                    'entities' => $entities,
+                    'current' => $this->current,
+                    'section' => $this->section,
+                    'choice' => $this->choice, 
+                    'class_alert' => $this->class_alert,
+                    'notify' => $this->notify
+        )); 
     }
     
 }

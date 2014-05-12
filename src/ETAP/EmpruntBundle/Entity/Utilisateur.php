@@ -1,6 +1,7 @@
 <?php
 
 namespace ETAP\EmpruntBundle\Entity;
+//use FOS\UserBundle\Entity\User as BaseUser;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -37,7 +38,7 @@ class Utilisateur
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
 
     /**
      * @var \ETAP\EmpruntBundle\Entity\Profil

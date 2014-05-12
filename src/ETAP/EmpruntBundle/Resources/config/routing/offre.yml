@@ -2,14 +2,6 @@ ConsulterOffre:
     pattern:  /ConsulterOffre
     defaults: { _controller: "EmpruntBundle:Offre:consulterOffre" }
 
-Depouillement:    
-    pattern:  /OpportunitesFinancement.html/depouillement.html
-    defaults: { _controller: EmpruntBundle:Offre:depouillement }  
-    
-display_offer_list:
-    pattern:  /OpportunitesFinancement.html/depouillement/display/{id}
-    defaults: { _controller: "EmpruntBundle:Offre:displayOfferList" }   
-
 AjouterOffre:
     pattern:  /AjouterOffre
     defaults: { _controller: "EmpruntBundle:Offre:ajouterOffre" }
@@ -19,8 +11,8 @@ display_offer:
     defaults: { _controller: "EmpruntBundle:Offre:displayOfferForm" }
 
 ModifierOffre:
-    pattern:  /{id}/ModifierOffre
-    defaults: { _controller: "EmpruntBundle:Offre:modifier" }
+    pattern:  /ModifierOffre/{id}
+    defaults: { _controller: "EmpruntBundle:Offre:modifierOffre" }
 
 offre_create:
     pattern:  /create

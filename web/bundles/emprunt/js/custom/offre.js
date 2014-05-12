@@ -2,55 +2,58 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- jQuery.noConflict();
+ $o.noConflict();
  
- jQuery(document).ready(function() {
- jQuery("#action_block").hide();        
+ $o(document).ready(function() {
+ $o("#action_block").hide();        
  
- jQuery("#demande_id").change(function() {
+ $o("#demande_id").change(function() {
  var id = getSelectValu
  */
 
-jQuery.noConflict();
+$o = jQuery.noConflict();
 
-jQuery(document).ready(function() {
+$o(document).ready(function() {
 
-    jQuery("#action_block").hide();
-
+//    $d("select").css("min-width","0%");
+    $o("#action_block").hide();
 
     // Consulter offre 
-
-    jQuery("#offre_id").change(function() {
-        var id = getSelectValue('offre_id');
-        jQuery.ajax({
+    $o("#offre_id").change(function() {
+        var id = getSelectValue('offre_id');           
+        $o.ajax({
             url: "/app_dev.php/OpportunitesFinancement.html/offre/display/" + id,
             success: function(data) {
-                jQuery("#form_offre").html(data);
-                jQuery("input").prop('disabled', true);
-                jQuery("select").prop('disabled', true);
-                jQuery("#offre_id").prop('disabled', false);
-                jQuery("#action_block").show();
-                jQuery( "#etap_empruntbundle_offretype_dateoffre" ).datepicker();
-            }
+                $o("#form_offre").html(data);
+                $o("input").prop('disabled', true);
+                $o("select").prop('disabled', true);
+                $o("#offre_id").prop('disabled', false);
+                $o("#action_block").show();
+                $o( "#etap_empruntbundle_offretype_dateoffre" ).datepicker();
+                $o("#save_edit").hide();
+                $o("#offre_form").attr('action','/app_dev.php/OpportunitesFinancement.html/offre/ModifierOffre/'+id)                
+            },
+            error: function(data) {
+                            alert("Une erreur interne s'est produite, Veuillez réessayer plus tard.");
+                        }  
         });
 
     });
     
-    //Modifier offre 
-    
-    jQuery("#update_form").click(function() {
-        jQuery("input").prop('disabled', false);
-        jQuery("select").prop('disabled', false);
-        jQuery("#offre_id").prop('disabled', true);
-        jQuery("#update_form").prop('disabled', 'disabled');
-        jQuery( "#etap_empruntbundle_offretype_dateoffre" ).datepicker();
-        jQuery("#action_block p").append('<button id="save_edit" class="stdbtn btn_blue">Enregistrer</button>');
+    //Modifier offre     
+    $o("#update_form").click(function() {
+        $o("input").prop('disabled', false);
+        $o("select").prop('disabled', false);
+        $o("#offre_id").prop('disabled', true);
+        $o("#update_form").prop('disabled', 'disabled');
+        $o("#update_form").prop('disabled', false);
+        $o("#save_edit").show();
+        $o( "#etap_empruntbundle_offretype_dateoffre" ).datepicker();           
     });    
 
     //Enregistrer Modification
-
-    jQuery("#save_edit").click(function() {
-        alert("click");
+    $o("#save_edit").click(function() {
+        $o("#offre_form").submit();
     });
 });
 

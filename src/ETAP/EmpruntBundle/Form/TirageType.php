@@ -11,10 +11,13 @@ class TirageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder 
+//            ->add('datevaleur','date', array('attr' => array('class' => 'width100 hasDatepicker')))   
             ->add('datevaleur','date', array('format'=>'MM dd yyyy'))
             ->add('montant','number', array('attr' => array('class' => 'longinput')))
             ->add('reftirage','number', array('attr' => array('class' => 'longinput')))
-            ->add('idcontrat','number', array('attr' => array('class' => 'longinput')))
+//            ->add('idcontrat','hidden')   
+//            ->add('idcontrat', 'entity', array('empty_value'=>'','class'=> 'EmpruntBundle:Contrat','property' => 'id','required' => false
+//            ))                              
         ;
     }
 
